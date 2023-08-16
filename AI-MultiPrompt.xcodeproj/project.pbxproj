@@ -1,0 +1,841 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A0151EDB2A8D0EED00C9A846 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0151EDA2A8D0EED00C9A846 /* AppDelegate.swift */; };
+		A0151EDF2A8D0EED00C9A846 /* Main.html in Resources */ = {isa = PBXBuildFile; fileRef = A0151EDD2A8D0EED00C9A846 /* Main.html */; };
+		A0151EE12A8D0EED00C9A846 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A0151EE02A8D0EED00C9A846 /* Icon.png */; };
+		A0151EE32A8D0EED00C9A846 /* Style.css in Resources */ = {isa = PBXBuildFile; fileRef = A0151EE22A8D0EED00C9A846 /* Style.css */; };
+		A0151EE52A8D0EED00C9A846 /* Script.js in Resources */ = {isa = PBXBuildFile; fileRef = A0151EE42A8D0EED00C9A846 /* Script.js */; };
+		A0151EE72A8D0EED00C9A846 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0151EE62A8D0EED00C9A846 /* ViewController.swift */; };
+		A0151EEA2A8D0EED00C9A846 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0151EE82A8D0EED00C9A846 /* Main.storyboard */; };
+		A0151EEC2A8D0EF000C9A846 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0151EEB2A8D0EF000C9A846 /* Assets.xcassets */; };
+		A0151EF82A8D0EF000C9A846 /* AI_MultiPromptTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0151EF72A8D0EF000C9A846 /* AI_MultiPromptTests.swift */; };
+		A0151F022A8D0EF000C9A846 /* AI_MultiPromptUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0151F012A8D0EF000C9A846 /* AI_MultiPromptUITests.swift */; };
+		A0151F042A8D0EF000C9A846 /* AI_MultiPromptUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0151F032A8D0EF000C9A846 /* AI_MultiPromptUITestsLaunchTests.swift */; };
+		A0151F0A2A8D0EF000C9A846 /* AI-MultiPrompt Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A0151F092A8D0EF000C9A846 /* AI-MultiPrompt Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A0151F0F2A8D0EF000C9A846 /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0151F0E2A8D0EF000C9A846 /* SafariWebExtensionHandler.swift */; };
+		A0151F122A8D0EF000C9A846 /* _locales in Resources */ = {isa = PBXBuildFile; fileRef = A0151F112A8D0EF000C9A846 /* _locales */; };
+		A0151F142A8D0EF000C9A846 /* images in Resources */ = {isa = PBXBuildFile; fileRef = A0151F132A8D0EF000C9A846 /* images */; };
+		A0151F162A8D0EF000C9A846 /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = A0151F152A8D0EF000C9A846 /* manifest.json */; };
+		A0151F182A8D0EF000C9A846 /* background.js in Resources */ = {isa = PBXBuildFile; fileRef = A0151F172A8D0EF000C9A846 /* background.js */; };
+		A0151F1A2A8D0EF000C9A846 /* content.js in Resources */ = {isa = PBXBuildFile; fileRef = A0151F192A8D0EF000C9A846 /* content.js */; };
+		A0151F1C2A8D0EF000C9A846 /* popup.html in Resources */ = {isa = PBXBuildFile; fileRef = A0151F1B2A8D0EF000C9A846 /* popup.html */; };
+		A0151F1E2A8D0EF000C9A846 /* popup.css in Resources */ = {isa = PBXBuildFile; fileRef = A0151F1D2A8D0EF000C9A846 /* popup.css */; };
+		A0151F202A8D0EF000C9A846 /* popup.js in Resources */ = {isa = PBXBuildFile; fileRef = A0151F1F2A8D0EF000C9A846 /* popup.js */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A0151EF42A8D0EF000C9A846 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A0151ECF2A8D0EED00C9A846 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A0151ED62A8D0EED00C9A846;
+			remoteInfo = "AI-MultiPrompt";
+		};
+		A0151EFE2A8D0EF000C9A846 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A0151ECF2A8D0EED00C9A846 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A0151ED62A8D0EED00C9A846;
+			remoteInfo = "AI-MultiPrompt";
+		};
+		A0151F0B2A8D0EF000C9A846 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A0151ECF2A8D0EED00C9A846 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A0151F082A8D0EF000C9A846;
+			remoteInfo = "AI-MultiPrompt Extension";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A0151F282A8D0EF000C9A846 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				A0151F0A2A8D0EF000C9A846 /* AI-MultiPrompt Extension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		A0151ED72A8D0EED00C9A846 /* AI-MultiPrompt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AI-MultiPrompt.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0151EDA2A8D0EED00C9A846 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A0151EDE2A8D0EED00C9A846 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = Base; path = ../Base.lproj/Main.html; sourceTree = "<group>"; };
+		A0151EE02A8D0EED00C9A846 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		A0151EE22A8D0EED00C9A846 /* Style.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = Style.css; sourceTree = "<group>"; };
+		A0151EE42A8D0EED00C9A846 /* Script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Script.js; sourceTree = "<group>"; };
+		A0151EE62A8D0EED00C9A846 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A0151EE92A8D0EED00C9A846 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A0151EEB2A8D0EF000C9A846 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A0151EED2A8D0EF000C9A846 /* AI_MultiPrompt.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AI_MultiPrompt.entitlements; sourceTree = "<group>"; };
+		A0151EEE2A8D0EF000C9A846 /* AI-MultiPrompt.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "AI-MultiPrompt.entitlements"; sourceTree = "<group>"; };
+		A0151EF32A8D0EF000C9A846 /* AI-MultiPromptTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AI-MultiPromptTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0151EF72A8D0EF000C9A846 /* AI_MultiPromptTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AI_MultiPromptTests.swift; sourceTree = "<group>"; };
+		A0151EFD2A8D0EF000C9A846 /* AI-MultiPromptUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AI-MultiPromptUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0151F012A8D0EF000C9A846 /* AI_MultiPromptUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AI_MultiPromptUITests.swift; sourceTree = "<group>"; };
+		A0151F032A8D0EF000C9A846 /* AI_MultiPromptUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AI_MultiPromptUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		A0151F092A8D0EF000C9A846 /* AI-MultiPrompt Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "AI-MultiPrompt Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0151F0E2A8D0EF000C9A846 /* SafariWebExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariWebExtensionHandler.swift; sourceTree = "<group>"; };
+		A0151F112A8D0EF000C9A846 /* _locales */ = {isa = PBXFileReference; lastKnownFileType = folder; path = _locales; sourceTree = "<group>"; };
+		A0151F132A8D0EF000C9A846 /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = images; sourceTree = "<group>"; };
+		A0151F152A8D0EF000C9A846 /* manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = manifest.json; sourceTree = "<group>"; };
+		A0151F172A8D0EF000C9A846 /* background.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = background.js; sourceTree = "<group>"; };
+		A0151F192A8D0EF000C9A846 /* content.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = content.js; sourceTree = "<group>"; };
+		A0151F1B2A8D0EF000C9A846 /* popup.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = popup.html; sourceTree = "<group>"; };
+		A0151F1D2A8D0EF000C9A846 /* popup.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = popup.css; sourceTree = "<group>"; };
+		A0151F1F2A8D0EF000C9A846 /* popup.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = popup.js; sourceTree = "<group>"; };
+		A0151F212A8D0EF000C9A846 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A0151F222A8D0EF000C9A846 /* AI_MultiPrompt_Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AI_MultiPrompt_Extension.entitlements; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A0151ED42A8D0EED00C9A846 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A0151EF02A8D0EF000C9A846 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A0151EFA2A8D0EF000C9A846 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A0151F062A8D0EF000C9A846 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A0151ECE2A8D0EED00C9A846 = {
+			isa = PBXGroup;
+			children = (
+				A0151ED92A8D0EED00C9A846 /* AI-MultiPrompt */,
+				A0151EF62A8D0EF000C9A846 /* AI-MultiPromptTests */,
+				A0151F002A8D0EF000C9A846 /* AI-MultiPromptUITests */,
+				A0151F0D2A8D0EF000C9A846 /* AI-MultiPrompt Extension */,
+				A0151ED82A8D0EED00C9A846 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A0151ED82A8D0EED00C9A846 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A0151ED72A8D0EED00C9A846 /* AI-MultiPrompt.app */,
+				A0151EF32A8D0EF000C9A846 /* AI-MultiPromptTests.xctest */,
+				A0151EFD2A8D0EF000C9A846 /* AI-MultiPromptUITests.xctest */,
+				A0151F092A8D0EF000C9A846 /* AI-MultiPrompt Extension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A0151ED92A8D0EED00C9A846 /* AI-MultiPrompt */ = {
+			isa = PBXGroup;
+			children = (
+				A0151EDA2A8D0EED00C9A846 /* AppDelegate.swift */,
+				A0151EE62A8D0EED00C9A846 /* ViewController.swift */,
+				A0151EE82A8D0EED00C9A846 /* Main.storyboard */,
+				A0151EEB2A8D0EF000C9A846 /* Assets.xcassets */,
+				A0151EED2A8D0EF000C9A846 /* AI_MultiPrompt.entitlements */,
+				A0151EEE2A8D0EF000C9A846 /* AI-MultiPrompt.entitlements */,
+				A0151EDC2A8D0EED00C9A846 /* Resources */,
+			);
+			path = "AI-MultiPrompt";
+			sourceTree = "<group>";
+		};
+		A0151EDC2A8D0EED00C9A846 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A0151EDD2A8D0EED00C9A846 /* Main.html */,
+				A0151EE02A8D0EED00C9A846 /* Icon.png */,
+				A0151EE22A8D0EED00C9A846 /* Style.css */,
+				A0151EE42A8D0EED00C9A846 /* Script.js */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		A0151EF62A8D0EF000C9A846 /* AI-MultiPromptTests */ = {
+			isa = PBXGroup;
+			children = (
+				A0151EF72A8D0EF000C9A846 /* AI_MultiPromptTests.swift */,
+			);
+			path = "AI-MultiPromptTests";
+			sourceTree = "<group>";
+		};
+		A0151F002A8D0EF000C9A846 /* AI-MultiPromptUITests */ = {
+			isa = PBXGroup;
+			children = (
+				A0151F012A8D0EF000C9A846 /* AI_MultiPromptUITests.swift */,
+				A0151F032A8D0EF000C9A846 /* AI_MultiPromptUITestsLaunchTests.swift */,
+			);
+			path = "AI-MultiPromptUITests";
+			sourceTree = "<group>";
+		};
+		A0151F0D2A8D0EF000C9A846 /* AI-MultiPrompt Extension */ = {
+			isa = PBXGroup;
+			children = (
+				A0151F0E2A8D0EF000C9A846 /* SafariWebExtensionHandler.swift */,
+				A0151F212A8D0EF000C9A846 /* Info.plist */,
+				A0151F222A8D0EF000C9A846 /* AI_MultiPrompt_Extension.entitlements */,
+				A0151F102A8D0EF000C9A846 /* Resources */,
+			);
+			path = "AI-MultiPrompt Extension";
+			sourceTree = "<group>";
+		};
+		A0151F102A8D0EF000C9A846 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A0151F112A8D0EF000C9A846 /* _locales */,
+				A0151F132A8D0EF000C9A846 /* images */,
+				A0151F152A8D0EF000C9A846 /* manifest.json */,
+				A0151F172A8D0EF000C9A846 /* background.js */,
+				A0151F192A8D0EF000C9A846 /* content.js */,
+				A0151F1B2A8D0EF000C9A846 /* popup.html */,
+				A0151F1D2A8D0EF000C9A846 /* popup.css */,
+				A0151F1F2A8D0EF000C9A846 /* popup.js */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A0151ED62A8D0EED00C9A846 /* AI-MultiPrompt */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A0151F292A8D0EF000C9A846 /* Build configuration list for PBXNativeTarget "AI-MultiPrompt" */;
+			buildPhases = (
+				A0151ED32A8D0EED00C9A846 /* Sources */,
+				A0151ED42A8D0EED00C9A846 /* Frameworks */,
+				A0151ED52A8D0EED00C9A846 /* Resources */,
+				A0151F282A8D0EF000C9A846 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A0151F0C2A8D0EF000C9A846 /* PBXTargetDependency */,
+			);
+			name = "AI-MultiPrompt";
+			productName = "AI-MultiPrompt";
+			productReference = A0151ED72A8D0EED00C9A846 /* AI-MultiPrompt.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A0151EF22A8D0EF000C9A846 /* AI-MultiPromptTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A0151F2C2A8D0EF000C9A846 /* Build configuration list for PBXNativeTarget "AI-MultiPromptTests" */;
+			buildPhases = (
+				A0151EEF2A8D0EF000C9A846 /* Sources */,
+				A0151EF02A8D0EF000C9A846 /* Frameworks */,
+				A0151EF12A8D0EF000C9A846 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A0151EF52A8D0EF000C9A846 /* PBXTargetDependency */,
+			);
+			name = "AI-MultiPromptTests";
+			productName = "AI-MultiPromptTests";
+			productReference = A0151EF32A8D0EF000C9A846 /* AI-MultiPromptTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		A0151EFC2A8D0EF000C9A846 /* AI-MultiPromptUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A0151F2F2A8D0EF000C9A846 /* Build configuration list for PBXNativeTarget "AI-MultiPromptUITests" */;
+			buildPhases = (
+				A0151EF92A8D0EF000C9A846 /* Sources */,
+				A0151EFA2A8D0EF000C9A846 /* Frameworks */,
+				A0151EFB2A8D0EF000C9A846 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A0151EFF2A8D0EF000C9A846 /* PBXTargetDependency */,
+			);
+			name = "AI-MultiPromptUITests";
+			productName = "AI-MultiPromptUITests";
+			productReference = A0151EFD2A8D0EF000C9A846 /* AI-MultiPromptUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		A0151F082A8D0EF000C9A846 /* AI-MultiPrompt Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A0151F252A8D0EF000C9A846 /* Build configuration list for PBXNativeTarget "AI-MultiPrompt Extension" */;
+			buildPhases = (
+				A0151F052A8D0EF000C9A846 /* Sources */,
+				A0151F062A8D0EF000C9A846 /* Frameworks */,
+				A0151F072A8D0EF000C9A846 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "AI-MultiPrompt Extension";
+			productName = "AI-MultiPrompt Extension";
+			productReference = A0151F092A8D0EF000C9A846 /* AI-MultiPrompt Extension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A0151ECF2A8D0EED00C9A846 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					A0151ED62A8D0EED00C9A846 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+					A0151EF22A8D0EF000C9A846 = {
+						CreatedOnToolsVersion = 15.0;
+						TestTargetID = A0151ED62A8D0EED00C9A846;
+					};
+					A0151EFC2A8D0EF000C9A846 = {
+						CreatedOnToolsVersion = 15.0;
+						TestTargetID = A0151ED62A8D0EED00C9A846;
+					};
+					A0151F082A8D0EF000C9A846 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = A0151ED22A8D0EED00C9A846 /* Build configuration list for PBXProject "AI-MultiPrompt" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A0151ECE2A8D0EED00C9A846;
+			productRefGroup = A0151ED82A8D0EED00C9A846 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A0151ED62A8D0EED00C9A846 /* AI-MultiPrompt */,
+				A0151EF22A8D0EF000C9A846 /* AI-MultiPromptTests */,
+				A0151EFC2A8D0EF000C9A846 /* AI-MultiPromptUITests */,
+				A0151F082A8D0EF000C9A846 /* AI-MultiPrompt Extension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A0151ED52A8D0EED00C9A846 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0151EE12A8D0EED00C9A846 /* Icon.png in Resources */,
+				A0151EEA2A8D0EED00C9A846 /* Main.storyboard in Resources */,
+				A0151EE52A8D0EED00C9A846 /* Script.js in Resources */,
+				A0151EDF2A8D0EED00C9A846 /* Main.html in Resources */,
+				A0151EEC2A8D0EF000C9A846 /* Assets.xcassets in Resources */,
+				A0151EE32A8D0EED00C9A846 /* Style.css in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A0151EF12A8D0EF000C9A846 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A0151EFB2A8D0EF000C9A846 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A0151F072A8D0EF000C9A846 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0151F182A8D0EF000C9A846 /* background.js in Resources */,
+				A0151F1E2A8D0EF000C9A846 /* popup.css in Resources */,
+				A0151F1C2A8D0EF000C9A846 /* popup.html in Resources */,
+				A0151F142A8D0EF000C9A846 /* images in Resources */,
+				A0151F162A8D0EF000C9A846 /* manifest.json in Resources */,
+				A0151F122A8D0EF000C9A846 /* _locales in Resources */,
+				A0151F1A2A8D0EF000C9A846 /* content.js in Resources */,
+				A0151F202A8D0EF000C9A846 /* popup.js in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A0151ED32A8D0EED00C9A846 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0151EE72A8D0EED00C9A846 /* ViewController.swift in Sources */,
+				A0151EDB2A8D0EED00C9A846 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A0151EEF2A8D0EF000C9A846 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0151EF82A8D0EF000C9A846 /* AI_MultiPromptTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A0151EF92A8D0EF000C9A846 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0151F042A8D0EF000C9A846 /* AI_MultiPromptUITestsLaunchTests.swift in Sources */,
+				A0151F022A8D0EF000C9A846 /* AI_MultiPromptUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A0151F052A8D0EF000C9A846 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0151F0F2A8D0EF000C9A846 /* SafariWebExtensionHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A0151EF52A8D0EF000C9A846 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A0151ED62A8D0EED00C9A846 /* AI-MultiPrompt */;
+			targetProxy = A0151EF42A8D0EF000C9A846 /* PBXContainerItemProxy */;
+		};
+		A0151EFF2A8D0EF000C9A846 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A0151ED62A8D0EED00C9A846 /* AI-MultiPrompt */;
+			targetProxy = A0151EFE2A8D0EF000C9A846 /* PBXContainerItemProxy */;
+		};
+		A0151F0C2A8D0EF000C9A846 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A0151F082A8D0EF000C9A846 /* AI-MultiPrompt Extension */;
+			targetProxy = A0151F0B2A8D0EF000C9A846 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A0151EDD2A8D0EED00C9A846 /* Main.html */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A0151EDE2A8D0EED00C9A846 /* Base */,
+			);
+			name = Main.html;
+			sourceTree = "<group>";
+		};
+		A0151EE82A8D0EED00C9A846 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A0151EE92A8D0EED00C9A846 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A0151F232A8D0EF000C9A846 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A0151F242A8D0EF000C9A846 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		A0151F262A8D0EF000C9A846 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "AI-MultiPrompt Extension/AI_MultiPrompt_Extension.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 48J595L9BX;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "AI-MultiPrompt Extension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "AI-MultiPrompt Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "org.bsc.AI-MultiPrompt.Extension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		A0151F272A8D0EF000C9A846 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "AI-MultiPrompt Extension/AI_MultiPrompt_Extension.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 48J595L9BX;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "AI-MultiPrompt Extension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "AI-MultiPrompt Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "org.bsc.AI-MultiPrompt.Extension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		A0151F2A2A8D0EF000C9A846 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "AI-MultiPrompt/AI-MultiPrompt.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 48J595L9BX;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "AI-MultiPrompt";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "org.bsc.AI-MultiPrompt";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		A0151F2B2A8D0EF000C9A846 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "AI-MultiPrompt/AI-MultiPrompt.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 48J595L9BX;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "AI-MultiPrompt";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "org.bsc.AI-MultiPrompt";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		A0151F2D2A8D0EF000C9A846 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 48J595L9BX;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.bsc.AI-MultiPromptTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AI-MultiPrompt.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AI-MultiPrompt";
+			};
+			name = Debug;
+		};
+		A0151F2E2A8D0EF000C9A846 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 48J595L9BX;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.bsc.AI-MultiPromptTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AI-MultiPrompt.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AI-MultiPrompt";
+			};
+			name = Release;
+		};
+		A0151F302A8D0EF000C9A846 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 48J595L9BX;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.bsc.AI-MultiPromptUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = "AI-MultiPrompt";
+			};
+			name = Debug;
+		};
+		A0151F312A8D0EF000C9A846 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 48J595L9BX;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.bsc.AI-MultiPromptUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = "AI-MultiPrompt";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A0151ED22A8D0EED00C9A846 /* Build configuration list for PBXProject "AI-MultiPrompt" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A0151F232A8D0EF000C9A846 /* Debug */,
+				A0151F242A8D0EF000C9A846 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A0151F252A8D0EF000C9A846 /* Build configuration list for PBXNativeTarget "AI-MultiPrompt Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A0151F262A8D0EF000C9A846 /* Debug */,
+				A0151F272A8D0EF000C9A846 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A0151F292A8D0EF000C9A846 /* Build configuration list for PBXNativeTarget "AI-MultiPrompt" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A0151F2A2A8D0EF000C9A846 /* Debug */,
+				A0151F2B2A8D0EF000C9A846 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A0151F2C2A8D0EF000C9A846 /* Build configuration list for PBXNativeTarget "AI-MultiPromptTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A0151F2D2A8D0EF000C9A846 /* Debug */,
+				A0151F2E2A8D0EF000C9A846 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A0151F2F2A8D0EF000C9A846 /* Build configuration list for PBXNativeTarget "AI-MultiPromptUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A0151F302A8D0EF000C9A846 /* Debug */,
+				A0151F312A8D0EF000C9A846 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A0151ECF2A8D0EED00C9A846 /* Project object */;
+}
