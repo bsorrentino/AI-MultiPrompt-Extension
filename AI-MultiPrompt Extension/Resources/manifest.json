@@ -38,6 +38,8 @@
     "permissions": [
         "nativeMessaging",
         "tabs",
-        "scripting"
+        "scripting",
+        "clipboardRead",
+        "clipboardWrite"
     ]
 }

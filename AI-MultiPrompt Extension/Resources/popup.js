@@ -296,7 +296,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 service.push(writePrompt( perplexityTabs, promptTextElem.value, perplexitySubmit ))
             }
             
-            Promise.allSettled( service )
+            Promise.allSettled( service ).then( result => {
+                if( navigator.clipboard ) {
+                    navigator.clipboard.writeText(promptTextElem.value)
+                    _LL( "copied to clipboard!")
+                }
+                else {
+                    _LL( "navigator.clipboard is not supported!");
+                }
+            })
                 
     //            const url = "https://chat.openai.com"
     //            // browser.runtime.sendNativeMessage( { message: "click popup" });
