@@ -18,7 +18,7 @@
 		A0151EF82A8D0EF000C9A846 /* AI_MultiPromptTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0151EF72A8D0EF000C9A846 /* AI_MultiPromptTests.swift */; };
 		A0151F022A8D0EF000C9A846 /* AI_MultiPromptUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0151F012A8D0EF000C9A846 /* AI_MultiPromptUITests.swift */; };
 		A0151F042A8D0EF000C9A846 /* AI_MultiPromptUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0151F032A8D0EF000C9A846 /* AI_MultiPromptUITestsLaunchTests.swift */; };
-		A0151F0A2A8D0EF000C9A846 /* AI-MultiPrompt Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A0151F092A8D0EF000C9A846 /* AI-MultiPrompt Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A0151F0A2A8D0EF000C9A846 /* AI-MultiPromptExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A0151F092A8D0EF000C9A846 /* AI-MultiPromptExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A0151F0F2A8D0EF000C9A846 /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0151F0E2A8D0EF000C9A846 /* SafariWebExtensionHandler.swift */; };
 		A0151F122A8D0EF000C9A846 /* _locales in Resources */ = {isa = PBXBuildFile; fileRef = A0151F112A8D0EF000C9A846 /* _locales */; };
 		A0151F142A8D0EF000C9A846 /* images in Resources */ = {isa = PBXBuildFile; fileRef = A0151F132A8D0EF000C9A846 /* images */; };
@@ -61,7 +61,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				A0151F0A2A8D0EF000C9A846 /* AI-MultiPrompt Extension.appex in Embed Foundation Extensions */,
+				A0151F0A2A8D0EF000C9A846 /* AI-MultiPromptExtension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -85,7 +85,7 @@
 		A0151EFD2A8D0EF000C9A846 /* AI-MultiPromptUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AI-MultiPromptUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0151F012A8D0EF000C9A846 /* AI_MultiPromptUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AI_MultiPromptUITests.swift; sourceTree = "<group>"; };
 		A0151F032A8D0EF000C9A846 /* AI_MultiPromptUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AI_MultiPromptUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		A0151F092A8D0EF000C9A846 /* AI-MultiPrompt Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "AI-MultiPrompt Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0151F092A8D0EF000C9A846 /* AI-MultiPromptExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "AI-MultiPromptExtension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0151F0E2A8D0EF000C9A846 /* SafariWebExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariWebExtensionHandler.swift; sourceTree = "<group>"; };
 		A0151F112A8D0EF000C9A846 /* _locales */ = {isa = PBXFileReference; lastKnownFileType = folder; path = _locales; sourceTree = "<group>"; };
 		A0151F132A8D0EF000C9A846 /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = images; sourceTree = "<group>"; };
@@ -148,7 +148,7 @@
 				A0151ED72A8D0EED00C9A846 /* AI-MultiPrompt.app */,
 				A0151EF32A8D0EF000C9A846 /* AI-MultiPromptTests.xctest */,
 				A0151EFD2A8D0EF000C9A846 /* AI-MultiPromptUITests.xctest */,
-				A0151F092A8D0EF000C9A846 /* AI-MultiPrompt Extension.appex */,
+				A0151F092A8D0EF000C9A846 /* AI-MultiPromptExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -279,9 +279,9 @@
 			productReference = A0151EFD2A8D0EF000C9A846 /* AI-MultiPromptUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
-		A0151F082A8D0EF000C9A846 /* AI-MultiPrompt Extension */ = {
+		A0151F082A8D0EF000C9A846 /* AI-MultiPromptExtension */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A0151F252A8D0EF000C9A846 /* Build configuration list for PBXNativeTarget "AI-MultiPrompt Extension" */;
+			buildConfigurationList = A0151F252A8D0EF000C9A846 /* Build configuration list for PBXNativeTarget "AI-MultiPromptExtension" */;
 			buildPhases = (
 				A0151F052A8D0EF000C9A846 /* Sources */,
 				A0151F062A8D0EF000C9A846 /* Frameworks */,
@@ -291,9 +291,9 @@
 			);
 			dependencies = (
 			);
-			name = "AI-MultiPrompt Extension";
+			name = "AI-MultiPromptExtension";
 			productName = "AI-MultiPrompt Extension";
-			productReference = A0151F092A8D0EF000C9A846 /* AI-MultiPrompt Extension.appex */;
+			productReference = A0151F092A8D0EF000C9A846 /* AI-MultiPromptExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
@@ -338,7 +338,7 @@
 				A0151ED62A8D0EED00C9A846 /* AI-MultiPrompt */,
 				A0151EF22A8D0EF000C9A846 /* AI-MultiPromptTests */,
 				A0151EFC2A8D0EF000C9A846 /* AI-MultiPromptUITests */,
-				A0151F082A8D0EF000C9A846 /* AI-MultiPrompt Extension */,
+				A0151F082A8D0EF000C9A846 /* AI-MultiPromptExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -438,7 +438,7 @@
 		};
 		A0151F0C2A8D0EF000C9A846 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A0151F082A8D0EF000C9A846 /* AI-MultiPrompt Extension */;
+			target = A0151F082A8D0EF000C9A846 /* AI-MultiPromptExtension */;
 			targetProxy = A0151F0B2A8D0EF000C9A846 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -594,6 +594,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "AI-MultiPrompt Extension/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "AI-MultiPrompt Extension";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -606,7 +607,7 @@
 					"-framework",
 					SafariServices,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.bsc.AI-MultiPrompt";
+				PRODUCT_BUNDLE_IDENTIFIER = org.bsc.AIMultiPrompt.macos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -625,6 +626,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "AI-MultiPrompt Extension/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "AI-MultiPrompt Extension";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -637,7 +639,7 @@
 					"-framework",
 					SafariServices,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.bsc.AI-MultiPrompt";
+				PRODUCT_BUNDLE_IDENTIFIER = org.bsc.AIMultiPrompt.macos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -674,7 +676,7 @@
 					"-framework",
 					WebKit,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.bsc.AI-MultiPrompt";
+				PRODUCT_BUNDLE_IDENTIFIER = org.bsc.AIMultiPrompt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -710,7 +712,7 @@
 					"-framework",
 					WebKit,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.bsc.AI-MultiPrompt";
+				PRODUCT_BUNDLE_IDENTIFIER = org.bsc.AIMultiPrompt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -728,7 +730,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.bsc.AI-MultiPromptTests";
+				PRODUCT_BUNDLE_IDENTIFIER = org.bsc.AIMultiPromptTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -747,7 +749,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.bsc.AI-MultiPromptTests";
+				PRODUCT_BUNDLE_IDENTIFIER = org.bsc.AIMultiPromptTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -764,7 +766,7 @@
 				DEVELOPMENT_TEAM = 48J595L9BX;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.bsc.AI-MultiPromptUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = org.bsc.AIMultiPromptUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -781,7 +783,7 @@
 				DEVELOPMENT_TEAM = 48J595L9BX;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.bsc.AI-MultiPromptUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = org.bsc.AIMultiPromptUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -801,7 +803,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A0151F252A8D0EF000C9A846 /* Build configuration list for PBXNativeTarget "AI-MultiPrompt Extension" */ = {
+		A0151F252A8D0EF000C9A846 /* Build configuration list for PBXNativeTarget "AI-MultiPromptExtension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A0151F262A8D0EF000C9A846 /* Debug */,
