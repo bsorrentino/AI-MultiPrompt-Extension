@@ -234,6 +234,11 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
     }
 
+    openaiToggleElem.checked = false
+    phindToggleElem.checked = false
+    bardToggleElem.checked = false
+    perplexityToggleElem.checked = false
+    
     // limit characters count
     promptTextElem.addEventListener('input', () => {
 
