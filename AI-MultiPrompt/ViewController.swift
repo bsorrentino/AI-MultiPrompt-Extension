@@ -9,7 +9,7 @@ import Cocoa
 import SafariServices
 import WebKit
 
-let extensionBundleIdentifier = "org.bsc.AI-MultiPrompt.Extension"
+let extensionBundleIdentifier = "org.bsc.AIMultiPrompt"
 
 class ViewController: NSViewController, WKNavigationDelegate, WKScriptMessageHandler {
 
