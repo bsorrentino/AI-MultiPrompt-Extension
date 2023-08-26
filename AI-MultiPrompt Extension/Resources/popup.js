@@ -37,6 +37,30 @@ function writePrompt( tabs, prompt, submitClosure ) {
     .catch( err => browser.runtime.sendMessage({ result: "error " + err }));
 }
 
+/**
+ * Queries the last button element within the given parent.
+ * 
+ * @param {HTMLElement} parent - The parent element to search within.
+ * @returns {HTMLButtonElement|undefined} The last button or undefined if none found.
+ */
+const queryLastButton = (parent) => {
+
+  const buttons = parent.querySelectorAll("button");
+
+  if (buttons && buttons.length > 0) {
+
+    buttons.forEach(b => console.debug("BUTTON => ", b));
+
+    return buttons[buttons.length - 1];
+    
+  } else {
+
+    console.warn("No buttons found!");
+
+  }
+
+}
+
 const openaiSubmit = ( prompt ) => {
     const promptElem = document.querySelector("form #prompt-textarea");
     if( !promptElem ) {
@@ -63,6 +87,7 @@ const openaiSubmit = ( prompt ) => {
 }
 
 const phindSubmit = ( prompt ) => {
+    
     const promptElem = document.querySelector("form textarea[name='q']");
     if( !promptElem ) {
         console.warn( "prompt not found!" )
@@ -71,16 +96,13 @@ const phindSubmit = ( prompt ) => {
     promptElem.value = prompt;
     promptElem.dispatchEvent(new Event('input', { 'bubbles': true }));
 
-    const button = document.querySelector("form textarea[name='q'] + button");
-    console.debug( "BUTTON", button );
-
-    if( button ) {
-       button.click()
-   }
-
-    // const parentForm = promptElem.closest('form')
-    // console.log( "FORM:", form );
-    // parentForm.submit()
+//     const button = document.querySelector("form textarea[name='q'] + button");
+//     console.debug( "BUTTON", button );
+//     if( button ) {
+//        button.click()
+//    }
+    const parentForm = promptElem.closest('form')
+    parentForm.submit()
     
 }
 
