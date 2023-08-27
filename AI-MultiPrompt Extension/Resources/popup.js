@@ -93,7 +93,15 @@ const phindSubmit = (prompt) => {
     promptElem.dispatchEvent(new Event('input', { 'bubbles': true }));
 
     const parentForm = promptElem.closest('form')
-    parentForm.submit()
+    const buttons = parentForm.querySelectorAll("button");
+
+    if (buttons && buttons.length > 0) {
+
+        buttons.forEach(b => console.debug("BUTTON => ", b));
+
+        const submitButton = buttons[buttons.length - 1];
+        submitButton.click()
+    }
 
 }
 
