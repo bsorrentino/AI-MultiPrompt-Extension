@@ -92,16 +92,24 @@ const phindSubmit = (prompt) => {
     promptElem.value = prompt;
     promptElem.dispatchEvent(new Event('input', { 'bubbles': true }));
 
-    const parentForm = promptElem.closest('form')
-    const buttons = parentForm.querySelectorAll("button");
-
-    if (buttons && buttons.length > 0) {
-
-        buttons.forEach(b => console.debug("BUTTON => ", b));
-
-        const submitButton = buttons[buttons.length - 1];
+    const submitButton = document.querySelector("form button[type='submit']");
+    if( submitButton ) {
         submitButton.click()
     }
+    else {
+        console.warn( 'sumit button not found! ')
+    }
+ 
+    // const parentForm = promptElem.closest('form button')
+    // const buttons = parentForm.querySelectorAll("button");
+
+    // if (buttons && buttons.length > 0) {
+
+    //     buttons.forEach(b => console.debug("BUTTON => ", b));
+
+    //     const submitButton = buttons[buttons.length - 1];
+    //     submitButton.click()
+    // }
 
 }
 
