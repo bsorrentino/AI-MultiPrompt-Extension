@@ -221,10 +221,10 @@ const getSettings = () =>
 * @returns {Promise<Array<PromiseSettledResult<browser.tabs.Tab>>>} A promise resolving to the matched tabs.
 */
 const _queryAITabs = () => Promise.allSettled([
-    browser.tabs.query({ url: "*://*.openai.com/*" }),
-    browser.tabs.query({ url: "*://*.phind.com/*" }),
-    browser.tabs.query({ url: "*://bard.google.com/*" }),
-    browser.tabs.query({ url: "*://*.perplexity.ai/*" }),
+    browser.tabs.query({ url: "*://*.openai.com/*", currentWindow:true }),
+    browser.tabs.query({ url: "*://*.phind.com/*" , currentWindow:true}),
+    browser.tabs.query({ url: "*://bard.google.com/*" , currentWindow:true}),
+    browser.tabs.query({ url: "*://*.perplexity.ai/*" , currentWindow:true}),
 ])
 
 /**
@@ -323,6 +323,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
     });
 
+    const saveSettingsHandler = () => 
+        saveSettings( {
+            openai: openaiToggleElem.checked,
+            phind: phindToggleElem.checked,
+            bard: bardToggleElem.checked,
+            perplexity: perplexityToggleElem.checked,
+            lastPrompt: promptTextElem.value
+        })
+
+    openaiToggleElem.addEventListener('change', saveSettingsHandler );
+    phindToggleElem.addEventListener('change', saveSettingsHandler );
+    bardToggleElem.addEventListener('change', saveSettingsHandler );
+    perplexityToggleElem.addEventListener('change', saveSettingsHandler );
+
     openaiToggleElem.checked = false
     phindToggleElem.checked = false
     bardToggleElem.checked = false
@@ -345,29 +359,30 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     .then(settings => {
 
-        openaiToggleElem.checked = settings.openai
-        phindToggleElem.checked = settings.phind
-        bardToggleElem.checked = settings.bard
-        perplexityToggleElem.checked = settings.perplexity;
         promptTextElem.value = settings.lastPrompt ?? "";
         promptTextElem.dispatchEvent(new Event('input', { 'bubbles': true }));
 
         queryOpenedAITab().then(aiTabs => {
+            
+            browser.runtime.sendMessage(aiTabs)
 
             const { openaiTabs, phindTabs, bardTabs, perplexityTabs } = aiTabs;
 
-            if (openaiTabs.length === 0) {
-                openaiToggleElem.disabled = true
-            }
-            if (phindTabs.length === 0) {
-                phindToggleElem.disabled = true
-            }
-            if (bardTabs.length === 0) {
-                bardToggleElem.disabled = true
-            }
-            if (perplexityTabs.length === 0) {
-                perplexityToggleElem.disabled = true;
-            }
+            const openaiTabsExists = openaiTabs.length > 0;
+            openaiToggleElem.disabled = !openaiTabsExists;
+            openaiToggleElem.checked = settings.openai && openaiTabsExists;
+
+            const phindTabsExists = phindTabs.length > 0;
+            phindToggleElem.disabled = !phindTabsExists;
+            phindToggleElem.checked = settings.phind && phindTabsExists;
+
+            const bardTabsExists = bardTabs.length > 0;
+            bardToggleElem.checked = settings.bard && bardTabsExists;
+            bardToggleElem.disabled = !bardTabsExists;
+
+            const perplexityTabsExists = perplexityTabs.length > 0
+            perplexityToggleElem.checked = settings.perplexity && perplexityTabsExists;
+            perplexityToggleElem.disabled = !perplexityTabsExists;
 
             promptButtonElem.addEventListener("click", async () => {
 
@@ -397,16 +412,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             _LL("navigator.clipboard is not supported!");
                         }
                     })
-                    .then(() =>
-                        // update settings
-                       saveSettings( {
-                            openai: openaiToggleElem.checked,
-                            phind: phindToggleElem.checked,
-                            bard: bardToggleElem.checked,
-                            perplexity: perplexityToggleElem.checked,
-                            lastPrompt: promptTextElem.value
-                        })
-                    )
+                    .then( saveSettingsHandler )
                     .then( result => _LL( "stored! "))
 
                 //            const url = "https://chat.openai.com"
