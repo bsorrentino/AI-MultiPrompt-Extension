@@ -1,2 +1,6 @@
 # AI-MultiPrompt-Extension
-A Safari Web Extension that allows to simultaneously submit a prompt to multiple AI chats
+
+Browser Extension that allows to simultaneously submit a prompt to multiple AI chats
+
+* [Safari](Safari/)
+* [Chrome](Chrome/)

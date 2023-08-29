@@ -34,7 +34,6 @@
             "72": "images/toolbar-icon-72.png"
         }
     },
-
     "permissions": [
         "nativeMessaging",
         "tabs",
