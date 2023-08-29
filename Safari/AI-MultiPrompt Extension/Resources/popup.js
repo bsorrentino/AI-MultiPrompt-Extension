@@ -131,7 +131,7 @@ const bardSubmit = (prompt) => {
     promptElem.dispatchEvent(new Event('input', { 'bubbles': true }));
 
     // parentForm.querySelector( "button:last-of-type" ); // doesn't work
-    const buttons = document.querySelectorAll("button");
+    const buttons = document.querySelectorAll("input-area button");
 
     if (buttons && buttons.length > 0) {
 
