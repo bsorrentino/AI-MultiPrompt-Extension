@@ -1,13 +1,13 @@
 
 // Logging
 const _LL = (msg) => {
-    browser.runtime.sendMessage({ log: msg })
+    chrome.runtime.sendMessage({ log: msg })
 }
 
 /**
 * Writes a prompt to the active tab's document.
 *
-* @param {Array<browser.tabs.Tab>} tabs - Array of browser tabs.
+* @param {Array<chrome.tabs.Tab>} tabs - Array of browser tabs.
 * @param {string} prompt - The prompt text to write.
 * @param {Function} submitClosure - Callback when prompt is submitted.
 *
@@ -24,7 +24,7 @@ function writePrompt(tabs, prompt, submitClosure) {
 
     const tab = tabs[0]
 
-    browser.scripting.executeScript({
+    chrome.scripting.executeScript({
         target: {
             tabId: tab.id,
         },
@@ -33,8 +33,8 @@ function writePrompt(tabs, prompt, submitClosure) {
         ],
         func: submitClosure
     })
-        .then(result => browser.runtime.sendMessage({ result: result }))
-        .catch(err => browser.runtime.sendMessage({ result: "error " + err }));
+        .then(result => chrome.runtime.sendMessage({ result: result }))
+        .catch(err => chrome.runtime.sendMessage({ result: "error " + err }));
 }
 
 
@@ -131,7 +131,7 @@ const bardSubmit = (prompt) => {
     promptElem.dispatchEvent(new Event('input', { 'bubbles': true }));
 
     // parentForm.querySelector( "button:last-of-type" ); // doesn't work
-    const buttons = document.querySelectorAll("button");
+    const buttons = document.querySelectorAll("input-area button");
 
     if (buttons && buttons.length > 0) {
 
@@ -194,7 +194,7 @@ const perplexitySubmit = (prompt) => {
  * @returns {Promise<void>}
  */
 const saveSettings = ( settings ) => 
-    browser.storage.local.set({ settings: settings })
+    chrome.storage.local.set({ settings: settings })
 
 /**
  * get settings from local storage
@@ -202,33 +202,33 @@ const saveSettings = ( settings ) =>
  * @return  {Promise<Settings|null>}  promise resolve settings or null if not found
  */
 const getSettings = () => 
-    browser.storage.local.get("settings" ).then( results => results.settings )
+    chrome.storage.local.get("settings" ).then( results => results.settings )
 
 
 /**
  * @typedef {Object} DetectedAITabs
- * @property {Array<browser.tabs.Tab>} openaiTabs -
- * @property {Array<browser.tabs.Tab>} phindTabs -
- * @property {Array<browser.tabs.Tab>} bardTabs -
- * @property {Array<browser.tabs.Tab>} perplexityTabs -
+ * @property {Array<chrome.tabs.Tab>} openaiTabs -
+ * @property {Array<chrome.tabs.Tab>} phindTabs -
+ * @property {Array<chrome.tabs.Tab>} bardTabs -
+ * @property {Array<chrome.tabs.Tab>} perplexityTabs -
  */
 
 /**
-* Calls the browser.tabs.query method to get the current tabs.
+* Calls the chrome.tabs.query method to get the current tabs.
 *
 * The query filters for tabs that have the specified url and are active.
 *
-* @returns {Promise<Array<PromiseSettledResult<browser.tabs.Tab>>>} A promise resolving to the matched tabs.
+* @returns {Promise<Array<PromiseSettledResult<chrome.tabs.Tab>>>} A promise resolving to the matched tabs.
 */
 const _queryAITabs = () => Promise.allSettled([
-    browser.tabs.query({ url: "*://*.openai.com/*", currentWindow:true }),
-    browser.tabs.query({ url: "*://*.phind.com/*" , currentWindow:true}),
-    browser.tabs.query({ url: "*://bard.google.com/*" , currentWindow:true}),
-    browser.tabs.query({ url: "*://*.perplexity.ai/*" , currentWindow:true}),
+    chrome.tabs.query({ url: "*://*.openai.com/*", currentWindow:true }),
+    chrome.tabs.query({ url: "*://*.phind.com/*" , currentWindow:true}),
+    chrome.tabs.query({ url: "*://bard.google.com/*" , currentWindow:true}),
+    chrome.tabs.query({ url: "*://*.perplexity.ai/*" , currentWindow:true}),
 ])
 
 /**
-* Queries for open AI tabs using browser.tabs.query.
+* Queries for open AI tabs using chrome.tabs.query.
 *
 * @returns {Promise<DetectedAITabs>} A promise that resolves to the detected tabs.
 */
@@ -273,7 +273,7 @@ const queryOpenedAITab = () =>
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    if (!browser.scripting) {
+    if (!chrome.scripting) {
         _LL("add 'scripting' permission");
         return;
     }
@@ -364,7 +364,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         queryOpenedAITab().then(aiTabs => {
             
-            browser.runtime.sendMessage(aiTabs)
+            chrome.runtime.sendMessage(aiTabs)
 
             const { openaiTabs, phindTabs, bardTabs, perplexityTabs } = aiTabs;
 
@@ -416,16 +416,16 @@ document.addEventListener("DOMContentLoaded", () => {
                     .then( result => _LL( "stored! "))
 
                 //            const url = "https://chat.openai.com"
-                //            // browser.runtime.sendNativeMessage( { message: "click popup" });
-                //            // browser.runtime.sendMessage({ openUrl: "https://chat.openai.com", target: "chatgpt" });
+                //            // chrome.runtime.sendNativeMessage( { message: "click popup" });
+                //            // chrome.runtime.sendMessage({ openUrl: "https://chat.openai.com", target: "chatgpt" });
                 //
                 //            var tab = window.open(url, "chatgpt" );
                 //
                 //            if( tab ) {
-                //                browser.runtime.sendMessage({ message: url + " loaded!" });
+                //                chrome.runtime.sendMessage({ message: url + " loaded!" });
                 //            }
                 //            else {
-                //                browser.runtime.sendMessage({ message: url + " failed!" });
+                //                chrome.runtime.sendMessage({ message: url + " failed!" });
                 //            }
 
             });
