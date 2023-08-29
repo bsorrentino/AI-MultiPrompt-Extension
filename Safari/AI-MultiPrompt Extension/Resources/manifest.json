@@ -41,5 +41,11 @@
         "clipboardRead",
         "clipboardWrite",
         "storage"
+    ],
+    "host_permissions": [
+        "*://*.openai.com/*", 
+        "*://*.phind.com/*" ,
+        "*://bard.google.com/*",
+        "*://*.perplexity.ai/*"
     ]
 }
