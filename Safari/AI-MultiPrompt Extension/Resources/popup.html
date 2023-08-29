@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="popup.css">
+    <script type="module" src="popup.js"></script>
+</head>
+<body>
+    <h3>AI Multi-Prompt Extension 1.0(8)</h3>
+    <div class="toggle-container">
+        <label class="toggle-switch" >
+            <input type="checkbox" id="openai-toggle">
+            <span class="slider"></span>
+        </label>
+        <p>ChatGPT</p>
+        <label class="toggle-switch" >
+            <input type="checkbox" id="phind-toggle">
+            <span class="slider"></span>
+        </label>
+        <p>PHind</p>
+        <label class="toggle-switch" >
+            <input type="checkbox" id="bard-toggle">
+            <span class="slider"></span>
+        </label>
+        <p>Bard</p>
+        <label class="toggle-switch" >
+            <input type="checkbox" id="perplexity-toggle">
+            <span class="slider"></span>
+        </label>
+        <p>Perplexity</p>        
+    </div>
+    <div id="container">
+        <textarea id="text-prompt"></textarea>
+        <button id="submit-prompt" disabled>
+            <svg viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z"/>
+            </svg>
+        </button>
+    </div>
+</body>
+</html>
