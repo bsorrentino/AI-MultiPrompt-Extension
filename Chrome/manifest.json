@@ -3,8 +3,8 @@
     "default_locale": "en",
 
     "name": "AI-MultiPrompt",
-    "description": "A Safari Web Extension that allows to simultaneously submit a prompt to multiple AI chats",
-    "version": "1.0",
+    "description": "A Web Extension that allows to simultaneously submit a prompt to multiple AI chats",
+    "version": "1.0.0",
 
     "icons": {
         "48": "images/icon-48.png",
