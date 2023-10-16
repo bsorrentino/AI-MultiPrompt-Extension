@@ -122,23 +122,29 @@ const phindSubmit = (prompt) => {
  */
 const bardSubmit = (prompt) => {
 
-    const promptElem = document.querySelector("mat-form-field textarea");
+    const promptElem = document.querySelector("input-area rich-textarea > div");
     if (!promptElem) {
         console.warn("prompt not found!")
         return;
     }
-    promptElem.value = prompt;
-    promptElem.dispatchEvent(new Event('input', { 'bubbles': true }));
+    
+    promptElem.innerHTML = prompt
 
-    // parentForm.querySelector( "button:last-of-type" ); // doesn't work
     const buttons = document.querySelectorAll("input-area button");
-
+    
     if (buttons && buttons.length > 0) {
 
         buttons.forEach(b => console.debug("BUTTON => ", b));
 
         const submitButton = buttons[buttons.length - 1];
-        submitButton.click()
+
+        // submitButton.click() // just seems doesn't work with one click
+        setTimeout( () => {
+            submitButton.click()
+            // alternative implementation
+            // submitButton.dispatchEvent(new Event('click', { 'bubbles': true })); 
+        }, 800);
+        
     }
 
 }
@@ -161,14 +167,23 @@ const perplexitySubmit = (prompt) => {
     promptElem.dispatchEvent(new Event('input', { 'bubbles': true }));
 
     // parentForm.querySelector( "button:last-of-type" ); // doesn't work
-    const buttons = promptElem.parentElement.querySelectorAll("button");
-
+    
+    let parentElem = promptElem.parentElement
+    let buttons = null
+    do {
+        buttons = parentElem.querySelectorAll("button");
+        
+        parentElem = parentElem.parentElement
+        
+    } while( buttons && buttons.length === 0 );
+    
     if (buttons && buttons.length > 0) {
 
         buttons.forEach(b => console.debug("BUTTON => ", b));
 
         const submitButton = buttons[buttons.length - 1];
         submitButton.click()
+        
     }
 
 }
@@ -401,17 +416,15 @@ document.addEventListener("DOMContentLoaded", () => {
                     service.push(writePrompt(perplexityTabs, promptTextElem.value, perplexitySubmit))
                 }
 
-                Promise.allSettled(service)
-                    .then(result => {
+                if (navigator.clipboard) {
+                    navigator.clipboard.writeText(promptTextElem.value)
+                    _LL("copied to clipboard!")
+                }
+                else {
+                    _LL("navigator.clipboard is not supported!");
+                }
 
-                        if (navigator.clipboard) {
-                            navigator.clipboard.writeText(promptTextElem.value)
-                            _LL("copied to clipboard!")
-                        }
-                        else {
-                            _LL("navigator.clipboard is not supported!");
-                        }
-                    })
+                Promise.allSettled(service)
                     .then( saveSettingsHandler )
                     .then( result => _LL( "stored! "))
 
