@@ -127,26 +127,24 @@ const bardSubmit = (prompt) => {
         console.warn("prompt not found!")
         return;
     }
-    // console.debug("promptElem", promptElem.value)
     
     promptElem.innerHTML = prompt
-    // promptElem.value = prompt;
-    // promptElem.textContent = prompt;
-    // promptElem.innerText = prompt;
-    
-    //promptElem.dispatchEvent(new Event('input', { 'bubbles': true }));
 
-    // parentForm.querySelector( "button:last-of-type" ); // doesn't work
     const buttons = document.querySelectorAll("input-area button");
-
+    
     if (buttons && buttons.length > 0) {
 
         buttons.forEach(b => console.debug("BUTTON => ", b));
 
         const submitButton = buttons[buttons.length - 1];
+
+        // submitButton.click() // just seems doesn't work with one click
+        setTimeout( () => {
+            submitButton.click()
+            // alternative implementation
+            // submitButton.dispatchEvent(new Event('click', { 'bubbles': true })); 
+        }, 800);
         
-        submitButton.click()
-        submitButton.click() // seems doesn't work with one click
     }
 
 }
