@@ -1,5 +1,5 @@
 
-export const queryTab = () => chrome.tabs.query({ url: "*://bard.google.com/*" , currentWindow:true})
+export const queryTab = () => browser.tabs.query({ url: "*://bard.google.com/*" , currentWindow:true})
 
 /**
  * Submits the given prompt text to the Bard playground form.

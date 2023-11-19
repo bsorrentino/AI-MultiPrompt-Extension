@@ -1,5 +1,5 @@
 
-export const queryTab = () => chrome.tabs.query({ url: "*://*.openai.com/*", currentWindow:true })
+export const queryTab = () => browser.tabs.query({ url: "*://*.openai.com/*", currentWindow:true })
 
 /**
  * Submits the given prompt text to the OpenAI playground form.

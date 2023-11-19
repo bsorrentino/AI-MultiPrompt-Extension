@@ -1,4 +1,4 @@
-export const queryTab = () => chrome.tabs.query({ url: "*://*.perplexity.ai/*" , currentWindow:true})
+export const queryTab = () => browser.tabs.query({ url: "*://*.perplexity.ai/*" , currentWindow:true})
 
 /**
  * Submits the given prompt text to the Perplexity playground form.

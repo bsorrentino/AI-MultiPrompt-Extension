@@ -1,6 +1,6 @@
 
 
-export const queryTab = () => chrome.tabs.query({ url: "*://*.phind.com/*" , currentWindow:true})
+export const queryTab = () => browser.tabs.query({ url: "*://*.phind.com/*" , currentWindow:true})
 
 
 /**

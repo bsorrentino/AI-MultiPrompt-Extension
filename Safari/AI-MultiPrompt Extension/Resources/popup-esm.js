@@ -10,13 +10,13 @@ console.log( "copilotQueryTab", copilotQueryTab )
 
 // Logging
 const _LL = (msg) => {
-    chrome.runtime.sendMessage({ log: msg })
+    browser.runtime.sendMessage({ log: msg })
 }
 
 /**
 * Writes a prompt to the active tab's document.
 *
-* @param {Array<chrome.tabs.Tab>} tabs - Array of chrome.tabs.
+* @param {Array<browser.tabs.Tab>} tabs - Array of browser.tabs.
 * @param {string} prompt - The prompt text to write.
 * @param {Function} submitClosure - Callback when prompt is submitted.
 *
@@ -33,7 +33,7 @@ function writePrompt(tabs, prompt, submitClosure) {
 
     const tab = tabs[0]
 
-    chrome.scripting.executeScript({
+    browser.scripting.executeScript({
         target: {
             tabId: tab.id,
         },
@@ -42,8 +42,8 @@ function writePrompt(tabs, prompt, submitClosure) {
         ],
         func: submitClosure
     })
-    .then(result => chrome.runtime.sendMessage({ result: result }))
-    .catch(err => chrome.runtime.sendMessage({ result: "error " + err }));
+    .then(result => browser.runtime.sendMessage({ result: result }))
+    .catch(err => browser.runtime.sendMessage({ result: "error " + err }));
 }
 
 /**
@@ -66,7 +66,7 @@ function writePrompt(tabs, prompt, submitClosure) {
  * @returns {Promise<void>}
  */
 const saveSettings = ( settings ) => 
-    chrome.storage.local.set({ settings: settings })
+    browser.storage.local.set({ settings: settings })
 
 /**
  * get settings from local storage
@@ -74,24 +74,24 @@ const saveSettings = ( settings ) =>
  * @return  {Promise<Settings|null>}  promise resolve settings or null if not found
  */
 const getSettings = () => 
-    chrome.storage.local.get("settings" ).then( results => results.settings )
+    browser.storage.local.get("settings" ).then( results => results.settings )
 
 
 /**
  * @typedef {Object} DetectedAITabs
- * @property {Array<chrome.tabs.Tab>} openaiTabs -
- * @property {Array<chrome.tabs.Tab>} phindTabs -
- * @property {Array<chrome.tabs.Tab>} bardTabs -
- * @property {Array<chrome.tabs.Tab>} perplexityTabs -
- * @property {Array<chrome.tabs.Tab>} copilotTabs -
+ * @property {Array<browser.tabs.Tab>} openaiTabs -
+ * @property {Array<browser.tabs.Tab>} phindTabs -
+ * @property {Array<browser.tabs.Tab>} bardTabs -
+ * @property {Array<browser.tabs.Tab>} perplexityTabs -
+ * @property {Array<browser.tabs.Tab>} copilotTabs -
  */
 
 /**
-* Calls the chrome.tabs.query method to get the current tabs.
+* Calls the browser.tabs.query method to get the current tabs.
 *
 * The query filters for tabs that have the specified url and are active.
 *
-* @returns {Promise<Array<PromiseSettledResult<chrome.tabs.Tab>>>} A promise resolving to the matched tabs.
+* @returns {Promise<Array<PromiseSettledResult<browser.tabs.Tab>>>} A promise resolving to the matched tabs.
 */
 const _queryAITabs = () => Promise.allSettled([
     openaiQueryTab(),
@@ -102,7 +102,7 @@ const _queryAITabs = () => Promise.allSettled([
 ])
 
 /**
-* Queries for open AI tabs using chrome.tabs.query.
+* Queries for open AI tabs using browser.tabs.query.
 *
 * @returns {Promise<DetectedAITabs>} A promise that resolves to the detected tabs.
 */
@@ -153,7 +153,7 @@ const queryOpenedAITab = () =>
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    if (!chrome.scripting) {
+    if (!browser.scripting) {
         _LL("add 'scripting' permission");
         return;
     }
@@ -253,7 +253,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         queryOpenedAITab().then(aiTabs => {
             
-            chrome.runtime.sendMessage(aiTabs)
+            browser.runtime.sendMessage(aiTabs)
 
             const { 
                 openaiTabs, 
@@ -316,16 +316,16 @@ document.addEventListener("DOMContentLoaded", () => {
                     .then( result => _LL( "stored! "))
 
                 //            const url = "https://chat.openai.com"
-                //            // chrome.runtime.sendNativeMessage( { message: "click popup" });
-                //            // chrome.runtime.sendMessage({ openUrl: "https://chat.openai.com", target: "chatgpt" });
+                //            // browser.runtime.sendNativeMessage( { message: "click popup" });
+                //            // browser.runtime.sendMessage({ openUrl: "https://chat.openai.com", target: "chatgpt" });
                 //
                 //            var tab = window.open(url, "chatgpt" );
                 //
                 //            if( tab ) {
-                //                chrome.runtime.sendMessage({ message: url + " loaded!" });
+                //                browser.runtime.sendMessage({ message: url + " loaded!" });
                 //            }
                 //            else {
-                //                chrome.runtime.sendMessage({ message: url + " failed!" });
+                //                browser.runtime.sendMessage({ message: url + " failed!" });
                 //            }
 
             });
