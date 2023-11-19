@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="popup.css">
-    <script type="module" src="popup.js"></script>
+    <script type="module" src="popup-esm.js"></script>
 </head>
 <body>
-    <h3>AI Multi-Prompt Extension 1.0(10)</h3>
+    <h3>AI Multi-Prompt Extension 1.0.0</h3>
     <div class="toggle-container">
         <label class="toggle-switch" >
             <input type="checkbox" id="openai-toggle">
@@ -27,7 +27,12 @@
             <input type="checkbox" id="perplexity-toggle">
             <span class="slider"></span>
         </label>
-        <p>Perplexity</p>        
+        <p>Perplexity</p>     
+        <label class="toggle-switch" >
+            <input type="checkbox" id="copilot-toggle">
+            <span class="slider"></span>
+        </label>
+        <p>Copilot</p>        
     </div>
     <div id="container">
         <textarea id="text-prompt"></textarea>
