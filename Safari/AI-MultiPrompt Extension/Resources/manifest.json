@@ -4,7 +4,7 @@
 
     "name": "AI-MultiPrompt",
     "description": "A Web Extension that allows to simultaneously submit a prompt to multiple AI chats",
-    "version": "1.0.10",
+    "version": "1.1.0",
 
     "icons": {
         "48": "images/icon-48.png",
@@ -19,7 +19,7 @@
     },
 
     "content_scripts": [{
-        "js": [ "content.js" ],
+        "js": [ "content.js"],
         "matches": [ "<all_urls>" ]
     }],
 
@@ -34,6 +34,7 @@
             "72": "images/toolbar-icon-72.png"
         }
     },
+
     "permissions": [
         "nativeMessaging",
         "tabs",
@@ -46,6 +47,7 @@
         "*://*.openai.com/*", 
         "*://*.phind.com/*" ,
         "*://bard.google.com/*",
-        "*://*.perplexity.ai/*"
+        "*://*.perplexity.ai/*",
+        "*://copilot.microsoft.com/*"
     ]
 }
