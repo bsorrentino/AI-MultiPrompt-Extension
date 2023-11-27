@@ -2,8 +2,8 @@
 
 Browser Extension that allows to simultaneously submit a prompt to multiple AI chats
 
-* [Safari](Safari/)
-* [Chrome](Chrome/)
+* [Safari](Safari/README.md)
+* [Chrome](Chrome/README.md)
 
 ## Articles
 
