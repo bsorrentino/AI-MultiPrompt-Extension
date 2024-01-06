@@ -45,6 +45,7 @@
         "*://*.phind.com/*" ,
         "*://bard.google.com/*",
         "*://*.perplexity.ai/*",
-        "*://copilot.microsoft.com/*"
+        "*://copilot.microsoft.com/*",
+        "*://chat.deepseek.com/*"
     ]
 }
