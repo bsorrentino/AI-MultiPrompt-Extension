@@ -1,4 +1,6 @@
-export const queryTab = () => browser.tabs.query({ url: "*://chat.deepseek.com/*" , currentWindow:true})
+export const queryTab = () => chrome.tabs.query({ url: "*://chat.deepseek.com/*" , currentWindow:true})
+
+export const createTab = () => chrome.tabs.create({ url: "https://chat.deepseek.com/", pinned: true })
 
 /**
  * Submits the given prompt text to the Deepseek playground form.
@@ -29,3 +31,4 @@ export const submit = (prompt) => {
     // Dispatch the event on the textarea element
     promptElem.dispatchEvent(enterEvent);
 }
+
