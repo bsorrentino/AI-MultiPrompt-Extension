@@ -1,13 +1,13 @@
-// browser.runtime.sendMessage({ greeting: "hello" }).then((response) => {
+// chrome.runtime.sendMessage({ greeting: "hello" }).then((response) => {
 //     console.log("Received response: ", response);
 // });
 
 const setTheme = ( mql ) => {
     if( mql.matches ) {
         console.log( "dark mode" )
-        browser.runtime.sendMessage({ theme: 'dark' });
+        chrome.runtime.sendMessage({ theme: 'dark' });
     } else {
-        browser.runtime.sendMessage({ theme: 'light' });
+        chrome.runtime.sendMessage({ theme: 'light' });
         console.log( "light mode" )
     }
 }
@@ -18,6 +18,6 @@ setTheme( mediaQueryForDarkScheme )
 
 mediaQueryForDarkScheme.addEventListener( 'change', setTheme ) 
 
-browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     console.log("Received request: ", request);
 });

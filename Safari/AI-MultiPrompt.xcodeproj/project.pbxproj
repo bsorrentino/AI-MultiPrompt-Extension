@@ -27,6 +27,8 @@
 		A0151F1A2A8D0EF000C9A846 /* content.js in Resources */ = {isa = PBXBuildFile; fileRef = A0151F192A8D0EF000C9A846 /* content.js */; };
 		A0151F1C2A8D0EF000C9A846 /* popup.html in Resources */ = {isa = PBXBuildFile; fileRef = A0151F1B2A8D0EF000C9A846 /* popup.html */; };
 		A0151F1E2A8D0EF000C9A846 /* popup.css in Resources */ = {isa = PBXBuildFile; fileRef = A0151F1D2A8D0EF000C9A846 /* popup.css */; };
+		A0448EB52B4AEB5200F88633 /* popup-esm.js in Resources */ = {isa = PBXBuildFile; fileRef = A0448EB32B4AEB5100F88633 /* popup-esm.js */; };
+		A0448EB62B4AEB5200F88633 /* ai-chat-modules in Resources */ = {isa = PBXBuildFile; fileRef = A0448EB42B4AEB5200F88633 /* ai-chat-modules */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +97,8 @@
 		A0151F1D2A8D0EF000C9A846 /* popup.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = popup.css; sourceTree = "<group>"; };
 		A0151F212A8D0EF000C9A846 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A0151F222A8D0EF000C9A846 /* AI_MultiPrompt_Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AI_MultiPrompt_Extension.entitlements; sourceTree = "<group>"; };
+		A0448EB32B4AEB5100F88633 /* popup-esm.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "popup-esm.js"; sourceTree = "<group>"; };
+		A0448EB42B4AEB5200F88633 /* ai-chat-modules */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "ai-chat-modules"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,11 +211,13 @@
 		A0151F102A8D0EF000C9A846 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A0448EB42B4AEB5200F88633 /* ai-chat-modules */,
 				A0151F112A8D0EF000C9A846 /* _locales */,
 				A0151F132A8D0EF000C9A846 /* images */,
 				A0151F152A8D0EF000C9A846 /* manifest.json */,
 				A0151F172A8D0EF000C9A846 /* background.js */,
 				A0151F192A8D0EF000C9A846 /* content.js */,
+				A0448EB32B4AEB5100F88633 /* popup-esm.js */,
 				A0151F1B2A8D0EF000C9A846 /* popup.html */,
 				A0151F1D2A8D0EF000C9A846 /* popup.css */,
 			);
@@ -301,7 +307,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1500;
-				LastUpgradeCheck = 1500;
+				LastUpgradeCheck = 1510;
 				TargetAttributes = {
 					A0151ED62A8D0EED00C9A846 = {
 						CreatedOnToolsVersion = 15.0;
@@ -377,7 +383,9 @@
 				A0151F1C2A8D0EF000C9A846 /* popup.html in Resources */,
 				A0151F142A8D0EF000C9A846 /* images in Resources */,
 				A0151F162A8D0EF000C9A846 /* manifest.json in Resources */,
+				A0448EB52B4AEB5200F88633 /* popup-esm.js in Resources */,
 				A0151F122A8D0EF000C9A846 /* _locales in Resources */,
+				A0448EB62B4AEB5200F88633 /* ai-chat-modules in Resources */,
 				A0151F1A2A8D0EF000C9A846 /* content.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -493,6 +501,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -557,6 +566,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -584,7 +594,8 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "AI-MultiPrompt Extension/AI_MultiPrompt_Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 48J595L9BX;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -597,8 +608,8 @@
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				MARKETING_VERSION = 1.0;
+				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
+				MARKETING_VERSION = 1.3.0;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -616,7 +627,8 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "AI-MultiPrompt Extension/AI_MultiPrompt_Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 48J595L9BX;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -629,8 +641,8 @@
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				MARKETING_VERSION = 1.0;
+				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
+				MARKETING_VERSION = 1.3.0;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -652,7 +664,8 @@
 				CODE_SIGN_ENTITLEMENTS = "AI-MultiPrompt/AI-MultiPrompt.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 48J595L9BX;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -664,7 +677,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				MARKETING_VERSION = 1.3.0;
 				OTHER_LDFLAGS = (
 					"-framework",
@@ -688,7 +701,8 @@
 				CODE_SIGN_ENTITLEMENTS = "AI-MultiPrompt/AI-MultiPrompt.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 48J595L9BX;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -700,7 +714,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				MARKETING_VERSION = 1.3.0;
 				OTHER_LDFLAGS = (
 					"-framework",
@@ -721,11 +735,12 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 48J595L9BX;
 				GENERATE_INFOPLIST_FILE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				MARKETING_VERSION = 1.0;
+				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
+				MARKETING_VERSION = 1.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = org.bsc.AIMultiPromptTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
@@ -740,11 +755,12 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 48J595L9BX;
 				GENERATE_INFOPLIST_FILE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				MARKETING_VERSION = 1.0;
+				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
+				MARKETING_VERSION = 1.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = org.bsc.AIMultiPromptTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
@@ -758,10 +774,11 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 48J595L9BX;
 				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = org.bsc.AIMultiPromptUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
@@ -775,10 +792,11 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 48J595L9BX;
 				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = org.bsc.AIMultiPromptUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
