@@ -1,6 +1,6 @@
 export const queryTab = () => chrome.tabs.query({ url: "*://chat.deepseek.com/*" , currentWindow:true})
 
-export const createTab = () => chrome.tabs.create({ url: "https://chat.deepseek.com/" })
+export const createTab = () => chrome.tabs.create({ url: "https://chat.deepseek.com/", pinned: true })
 
 /**
  * Submits the given prompt text to the Deepseek playground form.

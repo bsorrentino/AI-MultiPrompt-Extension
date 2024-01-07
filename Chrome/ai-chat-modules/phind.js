@@ -1,6 +1,6 @@
 export const queryTab = () => chrome.tabs.query({ url: "*://*.phind.com/*" , currentWindow:true})
 
-export const createTab = () => chrome.tabs.create({ url: "https://www.phind.com/" })
+export const createTab = () => chrome.tabs.create({ url: "https://www.phind.com/", pinned: true })
 
 /**
  * Submits the given prompt text to the PHind playground form.

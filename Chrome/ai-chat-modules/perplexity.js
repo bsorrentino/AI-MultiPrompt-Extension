@@ -1,6 +1,6 @@
 export const queryTab = () => chrome.tabs.query({ url: "*://*.perplexity.ai/*" , currentWindow:true})
 
-export const createTab = () => chrome.tabs.create({ url: "https://www.perplexity.ai/" })
+export const createTab = () => chrome.tabs.create({ url: "https://www.perplexity.ai/", pinned: true })
 
 /**
  * Submits the given prompt text to the Perplexity playground form.
