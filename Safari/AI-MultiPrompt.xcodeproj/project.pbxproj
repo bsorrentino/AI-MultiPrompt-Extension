@@ -27,7 +27,6 @@
 		A0151F1A2A8D0EF000C9A846 /* content.js in Resources */ = {isa = PBXBuildFile; fileRef = A0151F192A8D0EF000C9A846 /* content.js */; };
 		A0151F1C2A8D0EF000C9A846 /* popup.html in Resources */ = {isa = PBXBuildFile; fileRef = A0151F1B2A8D0EF000C9A846 /* popup.html */; };
 		A0151F1E2A8D0EF000C9A846 /* popup.css in Resources */ = {isa = PBXBuildFile; fileRef = A0151F1D2A8D0EF000C9A846 /* popup.css */; };
-		A0151F202A8D0EF000C9A846 /* popup.js in Resources */ = {isa = PBXBuildFile; fileRef = A0151F1F2A8D0EF000C9A846 /* popup.js */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,7 +93,6 @@
 		A0151F192A8D0EF000C9A846 /* content.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = content.js; sourceTree = "<group>"; };
 		A0151F1B2A8D0EF000C9A846 /* popup.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = popup.html; sourceTree = "<group>"; };
 		A0151F1D2A8D0EF000C9A846 /* popup.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = popup.css; sourceTree = "<group>"; };
-		A0151F1F2A8D0EF000C9A846 /* popup.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = popup.js; sourceTree = "<group>"; };
 		A0151F212A8D0EF000C9A846 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A0151F222A8D0EF000C9A846 /* AI_MultiPrompt_Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AI_MultiPrompt_Extension.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -216,7 +214,6 @@
 				A0151F192A8D0EF000C9A846 /* content.js */,
 				A0151F1B2A8D0EF000C9A846 /* popup.html */,
 				A0151F1D2A8D0EF000C9A846 /* popup.css */,
-				A0151F1F2A8D0EF000C9A846 /* popup.js */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -382,7 +379,6 @@
 				A0151F162A8D0EF000C9A846 /* manifest.json in Resources */,
 				A0151F122A8D0EF000C9A846 /* _locales in Resources */,
 				A0151F1A2A8D0EF000C9A846 /* content.js in Resources */,
-				A0151F202A8D0EF000C9A846 /* popup.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -656,7 +652,7 @@
 				CODE_SIGN_ENTITLEMENTS = "AI-MultiPrompt/AI-MultiPrompt.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 48J595L9BX;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -669,7 +665,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.3.0;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -692,7 +688,7 @@
 				CODE_SIGN_ENTITLEMENTS = "AI-MultiPrompt/AI-MultiPrompt.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 48J595L9BX;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -705,7 +701,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.3.0;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
