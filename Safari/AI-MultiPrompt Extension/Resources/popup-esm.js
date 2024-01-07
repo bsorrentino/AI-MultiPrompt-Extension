@@ -4,9 +4,9 @@ import { submit as openaiSubmit, queryTab as openaiQueryTab } from "./ai-chat-mo
 import { submit as bardSubmit, queryTab as bardQueryTab } from "./ai-chat-modules/bard.js";
 import { submit as phindSubmit, queryTab as phindQueryTab } from "./ai-chat-modules/phind.js";
 import { submit as perplexitySubmit, queryTab as perplexityQueryTab } from "./ai-chat-modules/perplexity.js";
+import { submit as deepseekSubmit, queryTab as deepseekQueryTab } from "./ai-chat-modules/deepseek.js";
 
-
-console.log( "copilotQueryTab", copilotQueryTab )
+// console.log( "copilotQueryTab", copilotQueryTab )
 
 // Logging
 const _LL = (msg) => {
@@ -56,6 +56,7 @@ function writePrompt(tabs, prompt, submitClosure) {
  * @property {boolean} bard - Whether Google Bard integration is enabled.
  * @property {boolean} perplexity - Whether Perplexity AI integration is enabled.
  * @property {boolean} copilot - Whether Copilot AI integration is enabled.
+ * @property {boolean} deepseek - Whether Deepseek AI integration is enabled.
  * @property {string} lastPrompt - Stores the last submitted prompt text.
  */
 
@@ -84,6 +85,7 @@ const getSettings = () =>
  * @property {Array<browser.tabs.Tab>} bardTabs -
  * @property {Array<browser.tabs.Tab>} perplexityTabs -
  * @property {Array<browser.tabs.Tab>} copilotTabs -
+ * @property {Array<browser.tabs.Tab>} deepseekTabs -
  */
 
 /**
@@ -98,7 +100,8 @@ const _queryAITabs = () => Promise.allSettled([
     phindQueryTab(),
     bardQueryTab(),
     perplexityQueryTab(),
-    copilotQueryTab()
+    copilotQueryTab(),
+    deepseekQueryTab()
 ])
 
 /**
@@ -119,7 +122,8 @@ const queryOpenedAITab = () =>
             phindTabs: [],
             bardTabs: [],
             perplexityTabs: [],
-            copilotTabs: []
+            copilotTabs: [],
+            deepseekTabs: []
         }
 
         const [
@@ -127,7 +131,8 @@ const queryOpenedAITab = () =>
             phindTabsResult,
             bardTabsResult,
             perplexityTabsResult,
-            copilotTabsResult
+            copilotTabsResult,
+            deepseekTabsResult,
         ] = queryResult;
 
 
@@ -145,6 +150,9 @@ const queryOpenedAITab = () =>
         }
         if (copilotTabsResult.status === "fulfilled" && copilotTabsResult.value.length > 0) {
             result.copilotTabs = copilotTabsResult.value
+        }
+        if (deepseekTabsResult.status === "fulfilled" && deepseekTabsResult.value.length > 0) {
+            result.deepseekTabs = deepseekTabsResult.value
         }
 
         return result
@@ -193,6 +201,11 @@ document.addEventListener("DOMContentLoaded", () => {
         _LL("'copilot-toggle' element not found");
         return;
     }
+    const deepseekToggleElem = document.getElementById("deepseek-toggle");
+    if (!deepseekToggleElem) {
+        _LL("'deepseek-toggle' element not found");
+        return;
+    }
 
     promptTextElem.addEventListener('input', () => {
 
@@ -215,6 +228,7 @@ document.addEventListener("DOMContentLoaded", () => {
             bard: bardToggleElem.checked,
             perplexity: perplexityToggleElem.checked,
             copilot: copilotToggleElem.checked,
+            deepseek: deepseekToggleElem.checked,
             lastPrompt: promptTextElem.value
         })
 
@@ -223,12 +237,14 @@ document.addEventListener("DOMContentLoaded", () => {
     bardToggleElem.addEventListener('change', saveSettingsHandler );
     perplexityToggleElem.addEventListener('change', saveSettingsHandler );
     copilotToggleElem.addEventListener('change', saveSettingsHandler );
+    deepseekToggleElem.addEventListener('change', saveSettingsHandler );
 
     openaiToggleElem.checked = false
     phindToggleElem.checked = false
     bardToggleElem.checked = false
     perplexityToggleElem.checked = false
     copilotToggleElem.checked = false
+    deepseekToggleElem.checked = false
 
     getSettings()
     .then(settings => {
@@ -240,6 +256,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     bard: true,
                     perplexity: true,
                     copilot: true,
+                    deepseek: true,
                     lastPrompt: ""
                 }
             }
@@ -260,7 +277,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 phindTabs, 
                 bardTabs, 
                 perplexityTabs, 
-                copilotTabs 
+                copilotTabs, 
+                deepseekTabs
             } = aiTabs;
 
             const openaiTabsExists = openaiTabs.length > 0;
@@ -283,6 +301,10 @@ document.addEventListener("DOMContentLoaded", () => {
             copilotToggleElem.checked = settings.copilot && copilotTabsExists;
             copilotToggleElem.disabled = !copilotTabsExists;
 
+            const deepseekTabsExists = deepseekTabs.length > 0
+            deepseekToggleElem.checked = settings.deepseek && deepseekTabsExists;
+            deepseekToggleElem.disabled = !deepseekTabsExists;
+
             promptButtonElem.addEventListener("click", async () => {
 
                 const service = []
@@ -301,6 +323,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
                 if (copilotToggleElem.checked) {
                     service.push(writePrompt(copilotTabs, promptTextElem.value, copilotSubmit))
+                }
+                if (deepseekToggleElem.checked) {
+                    service.push(writePrompt(deepseekTabs, promptTextElem.value, deepseekSubmit))
                 }
 
                 if (navigator.clipboard) {
