@@ -1,5 +1,6 @@
+export const queryTab = () => chrome.tabs.query({ url: "*://copilot.microsoft.com/*" , currentWindow:true})
 
-export const queryTab = () => browser.tabs.query({ url: "*://copilot.microsoft.com/*" , currentWindow:true})
+export const createTab = () => chrome.tabs.create({ url: "https://copilot.microsoft.com/", pinned: true })
 
 /**
  * Submits the given prompt text to the Bard playground form.

@@ -22,6 +22,7 @@ This extension submit a single prompt simultaneously to different AI chat previo
 * It remember last submitted prompt 
 * Copy last submitted prompt to the clipboard
 * Allows to choose which AI are involved in prompt analysis.
+* Open a Pinned tab for each AI chat choosen
 
 ### Usage 
 
