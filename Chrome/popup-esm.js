@@ -182,15 +182,17 @@ const queryOpenedAITab = () =>
         return result
     });
 
+
 /**
- * Initializes a toggle element based on the provided parameters.
+ * Initializes a toggle element based on the provided tabs, settings, and callbacks.
  * 
- * @param {chrome.tabs.Tab[]} tabs - Array of tab elements
- * @param {HTMLInputElement} toggleElem - The toggle input element
- * @param {boolean} setting - The setting value 
- * @param {Function} createTab - The function to create a new tab
+ * @param {Array} tabs - Array of tab objects to check for existence
+ * @param {HTMLElement} toggleElem - Toggle element to update
+ * @param {boolean} setting - Current setting value 
+ * @param {Function} createTab - Callback to create a new tab
+ * @param {Function} saveSettings - Callback to save updated settings
 */
-const toggleInit = ( tabs, toggleElem, setting, createTab ) => {
+const toggleInit = ( tabs, toggleElem, setting, createTab, saveSettings ) => {
     const tabsExists = tabs.length > 0
     toggleElem.checked = setting && tabsExists;
     // toggle.disabled = !tabsExists;
@@ -199,6 +201,7 @@ const toggleInit = ( tabs, toggleElem, setting, createTab ) => {
         if( toggleElem.checked && !tabsExists ) {
             createTab();
         }
+        saveSettings()
     });
 
 }
@@ -251,7 +254,6 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
     }
 
-
     promptTextElem.addEventListener('input', () => {
 
         const value = promptTextElem.value;
@@ -265,31 +267,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
     });
-
-    const saveSettingsHandler = () => 
-        saveSettings( {
-            openai: openaiToggleElem.checked,
-            phind: phindToggleElem.checked,
-            bard: bardToggleElem.checked,
-            perplexity: perplexityToggleElem.checked,
-            copilot: copilotToggleElem.checked,
-            deepseek: deepseekToggleElem.checked,
-            lastPrompt: promptTextElem.value
-        })
-
-    openaiToggleElem.addEventListener('change', saveSettingsHandler );
-    phindToggleElem.addEventListener('change', saveSettingsHandler );
-    bardToggleElem.addEventListener('change', saveSettingsHandler );
-    perplexityToggleElem.addEventListener('change', saveSettingsHandler );
-    copilotToggleElem.addEventListener('change', saveSettingsHandler );
-    deepseekToggleElem.addEventListener('change', saveSettingsHandler );
-
-    openaiToggleElem.checked = false
-    phindToggleElem.checked = false
-    bardToggleElem.checked = false
-    perplexityToggleElem.checked = false
-    copilotToggleElem.checked = false
-    deepseekToggleElem.checked = false
 
     getSettings()
     .then(settings => {
@@ -317,6 +294,17 @@ document.addEventListener("DOMContentLoaded", () => {
             
             chrome.runtime.sendMessage(aiTabs)
 
+            const saveSettingsHandler = () => 
+                saveSettings( {
+                    openai: openaiToggleElem.checked,
+                    phind: phindToggleElem.checked,
+                    bard: bardToggleElem.checked,
+                    perplexity: perplexityToggleElem.checked,
+                    copilot: copilotToggleElem.checked,
+                    deepseek: deepseekToggleElem.checked,
+                    lastPrompt: promptTextElem.value
+                })
+    
             const { 
                 openaiTabs, 
                 phindTabs, 
@@ -326,12 +314,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 deepseekTabs
             } = aiTabs;
 
-            toggleInit( openaiTabs, openaiToggleElem, settings.openai, openaiCreateTab );
-            toggleInit( phindTabs, phindToggleElem, settings.phind, phindCreateTab );
-            toggleInit( bardTabs, bardToggleElem, settings.bard, bardCreateTab );
-            toggleInit( perplexityTabs, perplexityToggleElem, settings.perplexity, perplexityCreateTab );
-            toggleInit( copilotTabs, copilotToggleElem, settings.copilot, copilotCreateTab );
-            toggleInit( deepseekTabs, deepseekToggleElem, settings.deepseek, deepseekCreateTab );
+            toggleInit( openaiTabs, openaiToggleElem, settings.openai, openaiCreateTab, saveSettingsHandler );
+            toggleInit( phindTabs, phindToggleElem, settings.phind, phindCreateTab, saveSettingsHandler );
+            toggleInit( bardTabs, bardToggleElem, settings.bard, bardCreateTab, saveSettingsHandler );
+            toggleInit( perplexityTabs, perplexityToggleElem, settings.perplexity, perplexityCreateTab, saveSettingsHandler );
+            toggleInit( copilotTabs, copilotToggleElem, settings.copilot, copilotCreateTab, saveSettingsHandler );
+            toggleInit( deepseekTabs, deepseekToggleElem, settings.deepseek, deepseekCreateTab, saveSettingsHandler );
             
             promptButtonElem.addEventListener("click", async () => {
 
