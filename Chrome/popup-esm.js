@@ -1,9 +1,29 @@
 
-import { submit as copilotSubmit, queryTab as copilotQueryTab } from "./ai-chat-modules/copilot.js";
-import { submit as openaiSubmit, queryTab as openaiQueryTab } from "./ai-chat-modules/chatgpt.js";
-import { submit as bardSubmit, queryTab as bardQueryTab } from "./ai-chat-modules/bard.js";
-import { submit as phindSubmit, queryTab as phindQueryTab } from "./ai-chat-modules/phind.js";
-import { submit as perplexitySubmit, queryTab as perplexityQueryTab } from "./ai-chat-modules/perplexity.js";
+import { 
+    submit as copilotSubmit, 
+    queryTab as copilotQueryTab,
+    createTab as copilotCreateTab
+ } from "./ai-chat-modules/copilot.js";
+import { 
+    submit as openaiSubmit, 
+    queryTab as openaiQueryTab,
+    createTab as openaiCreateTab
+} from "./ai-chat-modules/chatgpt.js";
+import { 
+    submit as bardSubmit, 
+    queryTab as bardQueryTab,
+    createTab as bardCreateTab
+} from "./ai-chat-modules/bard.js";
+import { 
+    submit as perplexitySubmit, 
+    queryTab as perplexityQueryTab,
+    createTab as perplexityCreateTab
+} from "./ai-chat-modules/perplexity.js";
+import { 
+    submit as phindSubmit, 
+    queryTab as phindQueryTab,
+    createTab as phindCreateTab
+} from "./ai-chat-modules/phind.js";
 import { 
     submit as deepseekSubmit, 
     queryTab as deepseekQueryTab,
@@ -162,6 +182,26 @@ const queryOpenedAITab = () =>
         return result
     });
 
+/**
+ * Initializes a toggle element based on the provided parameters.
+ * 
+ * @param {chrome.tabs.Tab[]} tabs - Array of tab elements
+ * @param {HTMLInputElement} toggleElem - The toggle input element
+ * @param {boolean} setting - The setting value 
+ * @param {Function} createTab - The function to create a new tab
+*/
+const toggleInit = ( tabs, toggleElem, setting, createTab ) => {
+    const tabsExists = tabs.length > 0
+    toggleElem.checked = setting && tabsExists;
+    // toggle.disabled = !tabsExists;
+
+    toggleElem.addEventListener('change', () => {
+        if( toggleElem.checked && !tabsExists ) {
+            createTab();
+        }
+    });
+
+}
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -286,35 +326,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 deepseekTabs
             } = aiTabs;
 
-            const openaiTabsExists = openaiTabs.length > 0;
-            openaiToggleElem.disabled = !openaiTabsExists;
-            openaiToggleElem.checked = settings.openai && openaiTabsExists;
-
-            const phindTabsExists = phindTabs.length > 0;
-            phindToggleElem.disabled = !phindTabsExists;
-            phindToggleElem.checked = settings.phind && phindTabsExists;
-
-            const bardTabsExists = bardTabs.length > 0;
-            bardToggleElem.checked = settings.bard && bardTabsExists;
-            bardToggleElem.disabled = !bardTabsExists;
-
-            const perplexityTabsExists = perplexityTabs.length > 0
-            perplexityToggleElem.checked = settings.perplexity && perplexityTabsExists;
-            perplexityToggleElem.disabled = !perplexityTabsExists;
-
-            const copilotTabsExists = copilotTabs.length > 0
-            copilotToggleElem.checked = settings.copilot && copilotTabsExists;
-            copilotToggleElem.disabled = !copilotTabsExists;
-
-            const deepseekTabsExists = deepseekTabs.length > 0
-            deepseekToggleElem.checked = settings.deepseek && deepseekTabsExists;
-            // deepseekToggleElem.disabled = !deepseekTabsExists;
-
-            deepseekToggleElem.addEventListener('change', () => {
-                if( deepseekToggleElem.checked && !deepseekTabsExists ) {
-                    deepseekCreateTab();
-                }
-            });
+            toggleInit( openaiTabs, openaiToggleElem, settings.openai, openaiCreateTab );
+            toggleInit( phindTabs, phindToggleElem, settings.phind, phindCreateTab );
+            toggleInit( bardTabs, bardToggleElem, settings.bard, bardCreateTab );
+            toggleInit( perplexityTabs, perplexityToggleElem, settings.perplexity, perplexityCreateTab );
+            toggleInit( copilotTabs, copilotToggleElem, settings.copilot, copilotCreateTab );
+            toggleInit( deepseekTabs, deepseekToggleElem, settings.deepseek, deepseekCreateTab );
             
             promptButtonElem.addEventListener("click", async () => {
 
