@@ -4,7 +4,11 @@ import { submit as openaiSubmit, queryTab as openaiQueryTab } from "./ai-chat-mo
 import { submit as bardSubmit, queryTab as bardQueryTab } from "./ai-chat-modules/bard.js";
 import { submit as phindSubmit, queryTab as phindQueryTab } from "./ai-chat-modules/phind.js";
 import { submit as perplexitySubmit, queryTab as perplexityQueryTab } from "./ai-chat-modules/perplexity.js";
-import { submit as deepseekSubmit, queryTab as deepseekQueryTab } from "./ai-chat-modules/deepseek.js";
+import { 
+    submit as deepseekSubmit, 
+    queryTab as deepseekQueryTab,
+    createTab as deepseekCreateTab
+} from "./ai-chat-modules/deepseek.js";
 
 // console.log( "copilotQueryTab", copilotQueryTab )
 
@@ -207,6 +211,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
     }
 
+
     promptTextElem.addEventListener('input', () => {
 
         const value = promptTextElem.value;
@@ -303,8 +308,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const deepseekTabsExists = deepseekTabs.length > 0
             deepseekToggleElem.checked = settings.deepseek && deepseekTabsExists;
-            deepseekToggleElem.disabled = !deepseekTabsExists;
+            // deepseekToggleElem.disabled = !deepseekTabsExists;
 
+            deepseekToggleElem.addEventListener('change', () => {
+                if( deepseekToggleElem.checked && !deepseekTabsExists ) {
+                    deepseekCreateTab();
+                }
+            });
+            
             promptButtonElem.addEventListener("click", async () => {
 
                 const service = []
