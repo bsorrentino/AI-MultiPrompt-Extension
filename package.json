@@ -1,0 +1,17 @@
+{
+  "name": "ai-multiprompt-extension",
+  "version": "1.0.0",
+  "description": "Browser Extension that allows to simultaneously submit a prompt to multiple AI chats",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "upload": "zx upload.mjs"
+  },
+  "keywords": [],
+  "author": "bsorrentino <bartolomeo.sorrentino@gmail.com> (http://soulsoftware-bsc.blogspot.it/)",
+  "license": "MIT",
+  "devDependencies": {
+    "cws-publish": "^2.1.1",
+    "zx": "^7.2.3"
+  }
+}
