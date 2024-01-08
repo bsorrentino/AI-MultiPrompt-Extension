@@ -1,2 +1,5 @@
 .DS_Store
 xcuserdata/
+.gitsecret/keys/random_seed
+!*.secret
+Chrome/apps.googleusercontent.com.json
