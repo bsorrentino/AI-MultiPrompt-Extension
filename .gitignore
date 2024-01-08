@@ -3,3 +3,5 @@ xcuserdata/
 .gitsecret/keys/random_seed
 !*.secret
 apps.googleusercontent.com.json
+node_modules/
+dist/
