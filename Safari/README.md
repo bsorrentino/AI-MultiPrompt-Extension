@@ -15,7 +15,7 @@ This extension submit a single prompt simultaneously to different AI chat previo
 
 * Currently the extension support:
   - ChatGPT
-  - Bard
+  - Gemini
   - PHind
   - Perplexity
   - Copilot

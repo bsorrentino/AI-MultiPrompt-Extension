@@ -3,7 +3,7 @@ export const queryTab = () => chrome.tabs.query({ url: "*://copilot.microsoft.co
 export const createTab = () => chrome.tabs.create({ url: "https://copilot.microsoft.com/", pinned: true })
 
 /**
- * Submits the given prompt text to the Bard playground form.
+ * Submits the given prompt text to the Copilot playground form.
  * 
  * take note that this function must be serializable to pass to executeScript. Don't call subfunction etc.
  * 
