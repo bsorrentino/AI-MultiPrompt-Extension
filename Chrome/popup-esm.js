@@ -10,10 +10,10 @@ import {
     createTab as openaiCreateTab
 } from "./ai-chat-modules/chatgpt.js";
 import { 
-    submit as bardSubmit, 
-    queryTab as bardQueryTab,
-    createTab as bardCreateTab
-} from "./ai-chat-modules/bard.js";
+    submit as geminiSubmit, 
+    queryTab as geminiQueryTab,
+    createTab as geminiCreateTab
+} from "./ai-chat-modules/gemini.js";
 import { 
     submit as perplexitySubmit, 
     queryTab as perplexityQueryTab,
@@ -77,7 +77,7 @@ function writePrompt(tabs, prompt, submitClosure) {
  * 
  * @property {boolean} openai - Whether OpenAI integration is enabled.
  * @property {boolean} phind - Whether Anthropic PHind integration is enabled. 
- * @property {boolean} bard - Whether Google Bard integration is enabled.
+ * @property {boolean} gemini - Whether Google gemini integration is enabled.
  * @property {boolean} perplexity - Whether Perplexity AI integration is enabled.
  * @property {boolean} copilot - Whether Copilot AI integration is enabled.
  * @property {boolean} deepseek - Whether Deepseek AI integration is enabled.
@@ -106,7 +106,7 @@ const getSettings = () =>
  * @typedef {Object} DetectedAITabs
  * @property {Array<chrome.tabs.Tab>} openaiTabs -
  * @property {Array<chrome.tabs.Tab>} phindTabs -
- * @property {Array<chrome.tabs.Tab>} bardTabs -
+ * @property {Array<chrome.tabs.Tab>} geminiTabs -
  * @property {Array<chrome.tabs.Tab>} perplexityTabs -
  * @property {Array<chrome.tabs.Tab>} copilotTabs -
  * @property {Array<chrome.tabs.Tab>} deepseekTabs -
@@ -122,7 +122,7 @@ const getSettings = () =>
 const _queryAITabs = () => Promise.allSettled([
     openaiQueryTab(),
     phindQueryTab(),
-    bardQueryTab(),
+    geminiQueryTab(),
     perplexityQueryTab(),
     copilotQueryTab(),
     deepseekQueryTab()
@@ -144,7 +144,7 @@ const queryOpenedAITab = () =>
         const result = {
             openaiTabs: [],
             phindTabs: [],
-            bardTabs: [],
+            geminiTabs: [],
             perplexityTabs: [],
             copilotTabs: [],
             deepseekTabs: []
@@ -153,7 +153,7 @@ const queryOpenedAITab = () =>
         const [
             openaiTabsResult,
             phindTabsResult,
-            bardTabsResult,
+            geminiTabsResult,
             perplexityTabsResult,
             copilotTabsResult,
             deepseekTabsResult,
@@ -166,8 +166,8 @@ const queryOpenedAITab = () =>
         if (phindTabsResult.status === "fulfilled" && phindTabsResult.value.length > 0) {
             result.phindTabs = phindTabsResult.value
         }
-        if (bardTabsResult.status === "fulfilled" && bardTabsResult.value.length > 0) {
-            result.bardTabs = bardTabsResult.value
+        if (geminiTabsResult.status === "fulfilled" && geminiTabsResult.value.length > 0) {
+            result.geminiTabs = geminiTabsResult.value
         }
         if (perplexityTabsResult.status === "fulfilled" && perplexityTabsResult.value.length > 0) {
             result.perplexityTabs = perplexityTabsResult.value
@@ -233,9 +233,9 @@ document.addEventListener("DOMContentLoaded", () => {
         _LL("'phind-toggle' element not found");
         return;
     }
-    const bardToggleElem = document.getElementById("bard-toggle");
-    if (!bardToggleElem) {
-        _LL("'bard-toggle' element not found");
+    const geminiToggleElem = document.getElementById("gemini-toggle");
+    if (!geminiToggleElem) {
+        _LL("'gemini-toggle' element not found");
         return;
     }
     const perplexityToggleElem = document.getElementById("perplexity-toggle");
@@ -275,7 +275,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 return {
                     openai: true,
                     phind: true,
-                    bard: true,
+                    gemini: true,
                     perplexity: true,
                     copilot: true,
                     deepseek: true,
@@ -298,7 +298,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 saveSettings( {
                     openai: openaiToggleElem.checked,
                     phind: phindToggleElem.checked,
-                    bard: bardToggleElem.checked,
+                    gemini: geminiToggleElem.checked,
                     perplexity: perplexityToggleElem.checked,
                     copilot: copilotToggleElem.checked,
                     deepseek: deepseekToggleElem.checked,
@@ -308,7 +308,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const { 
                 openaiTabs, 
                 phindTabs, 
-                bardTabs, 
+                geminiTabs, 
                 perplexityTabs, 
                 copilotTabs, 
                 deepseekTabs
@@ -316,7 +316,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             toggleInit( openaiTabs, openaiToggleElem, settings.openai, openaiCreateTab, saveSettingsHandler );
             toggleInit( phindTabs, phindToggleElem, settings.phind, phindCreateTab, saveSettingsHandler );
-            toggleInit( bardTabs, bardToggleElem, settings.bard, bardCreateTab, saveSettingsHandler );
+            toggleInit( geminiTabs, geminiToggleElem, settings.gemini, geminiCreateTab, saveSettingsHandler );
             toggleInit( perplexityTabs, perplexityToggleElem, settings.perplexity, perplexityCreateTab, saveSettingsHandler );
             toggleInit( copilotTabs, copilotToggleElem, settings.copilot, copilotCreateTab, saveSettingsHandler );
             toggleInit( deepseekTabs, deepseekToggleElem, settings.deepseek, deepseekCreateTab, saveSettingsHandler );
@@ -331,8 +331,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (phindToggleElem.checked) {
                     service.push(writePrompt(phindTabs, promptTextElem.value, phindSubmit))
                 }
-                if (bardToggleElem.checked) {
-                    service.push(writePrompt(bardTabs, promptTextElem.value, bardSubmit))
+                if (geminiToggleElem.checked) {
+                    service.push(writePrompt(geminiTabs, promptTextElem.value, geminiSubmit))
                 }
                 if (perplexityToggleElem.checked) {
                     service.push(writePrompt(perplexityTabs, promptTextElem.value, perplexitySubmit))
