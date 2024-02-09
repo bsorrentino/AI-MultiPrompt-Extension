@@ -1,9 +1,9 @@
-export const queryTab = () => browser.tabs.query({ url: "*://bard.google.com/*" , currentWindow:true})
+export const queryTab = () => browser.tabs.query({ url: "*://Gemini.google.com/*" , currentWindow:true})
 
-export const createTab = () => browser.tabs.create({ url: "https://bard.google.com/", pinned: true })
+export const createTab = () => browser.tabs.create({ url: "https://Gemini.google.com/", pinned: true })
 
 /**
- * Submits the given prompt text to the Bard playground form.
+ * Submits the given prompt text to the Gemini playground form.
  * 
  * take note that this function must be serializable to pass to executeScript. Don't call subfunction etc.
  * 
