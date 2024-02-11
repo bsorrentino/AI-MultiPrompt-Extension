@@ -11,7 +11,7 @@ export const createTab = () => chrome.tabs.create({ url: "https://gemini.google.
  */
 export const submit = (prompt) => {
 
-    const promptElem = document.querySelector("input-area rich-textarea > div");
+    const promptElem = document.querySelector("input-area-v2 rich-textarea > div");
     if (!promptElem) {
         console.warn("prompt not found!")
         return;
@@ -19,21 +19,18 @@ export const submit = (prompt) => {
     
     promptElem.innerHTML = prompt
 
-    const buttons = document.querySelectorAll("input-area button");
+     // Create a new KeyboardEvent
+     const enterEvent = new KeyboardEvent('keydown', {
+        bubbles: true, // Make sure the event bubbles up through the DOM
+        cancelable: true, // Allow it to be canceled
+        key: 'Enter', // Specify the key to be 'Enter'
+        code: 'Enter', // Specify the code to be 'Enter' for newer browsers
+        which: 13 // The keyCode for Enter key (legacy property)
+    });
     
-    if (buttons && buttons.length > 0) {
-
-        buttons.forEach(b => console.debug("BUTTON => ", b));
-
-        const submitButton = buttons[buttons.length - 1];
-
-        // submitButton.click() // just seems doesn't work with one click
-        setTimeout( () => {
-            submitButton.click()
-            // alternative implementation
-            // submitButton.dispatchEvent(new Event('click', { 'bubbles': true })); 
-        }, 800);
+    // Dispatch the event on the textarea element
+    setTimeout( () => promptElem.dispatchEvent(enterEvent), 800);
         
-    }
-
 }
+
+
