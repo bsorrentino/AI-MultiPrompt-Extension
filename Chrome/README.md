@@ -14,12 +14,12 @@ This extension submit a single prompt simultaneously to different AI chat previo
 ### Features: 
 
 * Currently the extension support:
-  - ChatGPT
-  - Gemini
-  - PHind
-  - Perplexity
-  - Copilot
-  - Deepseek
+  - [ChatGPT]
+  - [Gemini]
+  - [Mistral]
+  - [Perplexity]
+  - [Copilot]
+  - [Deepseek]
 * It remember last submitted prompt 
 * Copy last submitted prompt to the clipboard
 * Allows to choose which AI are involved in prompt analysis.
@@ -30,3 +30,11 @@ This extension submit a single prompt simultaneously to different AI chat previo
 1. Open the extension popup
 2. Write prompt
 3. Choose the AI chat you want to submit the prompt to and click on the "Submit" button
+
+
+ChatGPT: https://chat.openai.com/
+Gemini: https://gemini.google.com/
+Copilot: https://copilot.microsoft.com/
+Deepseek: https://chat.deepseek.com/
+Perplexity: https://www.perplexity.ai/
+Mistral: https://chat.mistral.ai/chat
