@@ -29,6 +29,11 @@ import {
     queryTab as deepseekQueryTab,
     createTab as deepseekCreateTab
 } from "./ai-chat-modules/deepseek.js";
+import { 
+    submit as mistralSubmit, 
+    queryTab as mistralQueryTab,
+    createTab as mistralCreateTab
+} from "./ai-chat-modules/mistral.js";
 
 // console.log( "copilotQueryTab", copilotQueryTab )
 
@@ -81,6 +86,7 @@ function writePrompt(tabs, prompt, submitClosure) {
  * @property {boolean} perplexity - Whether Perplexity AI integration is enabled.
  * @property {boolean} copilot - Whether Copilot AI integration is enabled.
  * @property {boolean} deepseek - Whether Deepseek AI integration is enabled.
+ * @property {boolean} mistral - Whether Mistral AI integration is enabled.
  * @property {string} lastPrompt - Stores the last submitted prompt text.
  */
 
@@ -110,6 +116,7 @@ const getSettings = () =>
  * @property {Array<chrome.tabs.Tab>} perplexityTabs -
  * @property {Array<chrome.tabs.Tab>} copilotTabs -
  * @property {Array<chrome.tabs.Tab>} deepseekTabs -
+ * @property {Array<chrome.tabs.Tab>} mistralTabs -
  */
 
 /**
@@ -125,7 +132,8 @@ const _queryAITabs = () => Promise.allSettled([
     geminiQueryTab(),
     perplexityQueryTab(),
     copilotQueryTab(),
-    deepseekQueryTab()
+    deepseekQueryTab(),
+    mistralQueryTab()
 ])
 
 /**
@@ -147,7 +155,8 @@ const queryOpenedAITab = () =>
             geminiTabs: [],
             perplexityTabs: [],
             copilotTabs: [],
-            deepseekTabs: []
+            deepseekTabs: [],
+            mistralTabs: []
         }
 
         const [
@@ -157,6 +166,7 @@ const queryOpenedAITab = () =>
             perplexityTabsResult,
             copilotTabsResult,
             deepseekTabsResult,
+            mistralTabsResult
         ] = queryResult;
 
 
@@ -178,7 +188,9 @@ const queryOpenedAITab = () =>
         if (deepseekTabsResult.status === "fulfilled" && deepseekTabsResult.value.length > 0) {
             result.deepseekTabs = deepseekTabsResult.value
         }
-
+        if (mistralTabsResult.status === "fulfilled" && mistralTabsResult.value.length > 0) {
+            result.mistralTabs = mistralTabsResult.value
+        }
         return result
     });
 
@@ -253,6 +265,11 @@ document.addEventListener("DOMContentLoaded", () => {
         _LL("'deepseek-toggle' element not found");
         return;
     }
+    const mistralToggleElem = document.getElementById("mistral-toggle");
+    if (!mistralToggleElem) {
+        _LL("'mistral-toggle' element not found");
+        return;
+    }
 
     promptTextElem.addEventListener('input', () => {
 
@@ -279,6 +296,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     perplexity: true,
                     copilot: true,
                     deepseek: true,
+                    mistral: true,
                     lastPrompt: ""
                 }
             }
@@ -302,6 +320,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     perplexity: perplexityToggleElem.checked,
                     copilot: copilotToggleElem.checked,
                     deepseek: deepseekToggleElem.checked,
+                    mistral: mistralToggleElem.checked,
                     lastPrompt: promptTextElem.value
                 })
     
@@ -311,7 +330,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 geminiTabs, 
                 perplexityTabs, 
                 copilotTabs, 
-                deepseekTabs
+                deepseekTabs,
+                mistralTabs
             } = aiTabs;
 
             toggleInit( openaiTabs, openaiToggleElem, settings.openai, openaiCreateTab, saveSettingsHandler );
@@ -320,7 +340,8 @@ document.addEventListener("DOMContentLoaded", () => {
             toggleInit( perplexityTabs, perplexityToggleElem, settings.perplexity, perplexityCreateTab, saveSettingsHandler );
             toggleInit( copilotTabs, copilotToggleElem, settings.copilot, copilotCreateTab, saveSettingsHandler );
             toggleInit( deepseekTabs, deepseekToggleElem, settings.deepseek, deepseekCreateTab, saveSettingsHandler );
-            
+            toggleInit( mistralTabs, mistralToggleElem, settings.mistral, mistralCreateTab, saveSettingsHandler );
+
             promptButtonElem.addEventListener("click", async () => {
 
                 const service = []
@@ -342,6 +363,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
                 if (deepseekToggleElem.checked) {
                     service.push(writePrompt(deepseekTabs, promptTextElem.value, deepseekSubmit))
+                }
+                if (mistralToggleElem.checked) {
+                    service.push(writePrompt(mistralTabs, promptTextElem.value, mistralSubmit))
                 }
 
                 if (navigator.clipboard) {
