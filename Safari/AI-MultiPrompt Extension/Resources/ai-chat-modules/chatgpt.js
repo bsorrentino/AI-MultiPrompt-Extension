@@ -1,6 +1,6 @@
-export const queryTab = () => browser.tabs.query({ url: "*://*.openai.com/*", currentWindow:true })
+export const queryTab = () => browser.tabs.query({ url: "*://chatgpt.com/*", currentWindow:true })
 
-export const createTab = () => browser.tabs.create({ url: "https://chat.openai.com/", pinned: true })
+export const createTab = () => browser.tabs.create({ url: "https://chatgpt.com/", pinned: true })
 
 /**
  * Submits the given prompt text to the OpenAI playground form.
