@@ -31,7 +31,7 @@ This extension submit a single prompt simultaneously to different AI chat previo
 3. Write prompt
 4. Choose the AI chat you want to submit the prompt to and click on the "Submit" button
 
-ChatGPT: https://chat.openai.com/
+ChatGPT: https://chatgpt.com/
 Gemini: https://gemini.google.com/
 Copilot: https://copilot.microsoft.com/
 Deepseek: https://chat.deepseek.com/
