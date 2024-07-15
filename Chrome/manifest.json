@@ -47,6 +47,7 @@
         "*://*.perplexity.ai/*",
         "*://copilot.microsoft.com/*",
         "*://chat.deepseek.com/*",
-        "*://chat.mistral.ai/*"
+        "*://chat.mistral.ai/*",
+        "*://claude.ai/*"
     ]
 }
