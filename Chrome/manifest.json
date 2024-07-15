@@ -4,7 +4,7 @@
 
     "name": "AI-MultiPrompt",
     "description": "A Web Extension that allows to simultaneously submit a prompt to multiple AI chats",
-    "version": "1.3.5",
+    "version": "1.4.0",
 
     "icons": {
         "48": "images/icon-48.png",
