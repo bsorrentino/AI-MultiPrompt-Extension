@@ -28,7 +28,15 @@
 		A0151F1C2A8D0EF000C9A846 /* popup.html in Resources */ = {isa = PBXBuildFile; fileRef = A0151F1B2A8D0EF000C9A846 /* popup.html */; };
 		A0151F1E2A8D0EF000C9A846 /* popup.css in Resources */ = {isa = PBXBuildFile; fileRef = A0151F1D2A8D0EF000C9A846 /* popup.css */; };
 		A0448EB52B4AEB5200F88633 /* popup-esm.js in Resources */ = {isa = PBXBuildFile; fileRef = A0448EB32B4AEB5100F88633 /* popup-esm.js */; };
-		A0448EB62B4AEB5200F88633 /* ai-chat-modules in Resources */ = {isa = PBXBuildFile; fileRef = A0448EB42B4AEB5200F88633 /* ai-chat-modules */; };
+		A0A7DAAA2C458526003DF1E1 /* ai-copilot.js in Resources */ = {isa = PBXBuildFile; fileRef = A0A7DAA12C458526003DF1E1 /* ai-copilot.js */; };
+		A0A7DAAB2C458526003DF1E1 /* ai-perplexity.js in Resources */ = {isa = PBXBuildFile; fileRef = A0A7DAA22C458526003DF1E1 /* ai-perplexity.js */; };
+		A0A7DAAC2C458526003DF1E1 /* ai-gemini.js in Resources */ = {isa = PBXBuildFile; fileRef = A0A7DAA32C458526003DF1E1 /* ai-gemini.js */; };
+		A0A7DAAD2C458526003DF1E1 /* ai-toggle.js in Resources */ = {isa = PBXBuildFile; fileRef = A0A7DAA42C458526003DF1E1 /* ai-toggle.js */; };
+		A0A7DAAE2C458526003DF1E1 /* ai-claude.js in Resources */ = {isa = PBXBuildFile; fileRef = A0A7DAA52C458526003DF1E1 /* ai-claude.js */; };
+		A0A7DAAF2C458526003DF1E1 /* ai-phind.js in Resources */ = {isa = PBXBuildFile; fileRef = A0A7DAA62C458526003DF1E1 /* ai-phind.js */; };
+		A0A7DAB02C458526003DF1E1 /* ai-mistral.js in Resources */ = {isa = PBXBuildFile; fileRef = A0A7DAA72C458526003DF1E1 /* ai-mistral.js */; };
+		A0A7DAB12C458526003DF1E1 /* ai-chatgpt.js in Resources */ = {isa = PBXBuildFile; fileRef = A0A7DAA82C458526003DF1E1 /* ai-chatgpt.js */; };
+		A0A7DAB22C458526003DF1E1 /* ai-deepseek.js in Resources */ = {isa = PBXBuildFile; fileRef = A0A7DAA92C458526003DF1E1 /* ai-deepseek.js */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,7 +106,15 @@
 		A0151F212A8D0EF000C9A846 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A0151F222A8D0EF000C9A846 /* AI_MultiPrompt_Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AI_MultiPrompt_Extension.entitlements; sourceTree = "<group>"; };
 		A0448EB32B4AEB5100F88633 /* popup-esm.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "popup-esm.js"; sourceTree = "<group>"; };
-		A0448EB42B4AEB5200F88633 /* ai-chat-modules */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "ai-chat-modules"; sourceTree = "<group>"; };
+		A0A7DAA12C458526003DF1E1 /* ai-copilot.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "ai-copilot.js"; sourceTree = "<group>"; };
+		A0A7DAA22C458526003DF1E1 /* ai-perplexity.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "ai-perplexity.js"; sourceTree = "<group>"; };
+		A0A7DAA32C458526003DF1E1 /* ai-gemini.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "ai-gemini.js"; sourceTree = "<group>"; };
+		A0A7DAA42C458526003DF1E1 /* ai-toggle.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "ai-toggle.js"; sourceTree = "<group>"; };
+		A0A7DAA52C458526003DF1E1 /* ai-claude.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "ai-claude.js"; sourceTree = "<group>"; };
+		A0A7DAA62C458526003DF1E1 /* ai-phind.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "ai-phind.js"; sourceTree = "<group>"; };
+		A0A7DAA72C458526003DF1E1 /* ai-mistral.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "ai-mistral.js"; sourceTree = "<group>"; };
+		A0A7DAA82C458526003DF1E1 /* ai-chatgpt.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "ai-chatgpt.js"; sourceTree = "<group>"; };
+		A0A7DAA92C458526003DF1E1 /* ai-deepseek.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "ai-deepseek.js"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,7 +227,15 @@
 		A0151F102A8D0EF000C9A846 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				A0448EB42B4AEB5200F88633 /* ai-chat-modules */,
+				A0A7DAA82C458526003DF1E1 /* ai-chatgpt.js */,
+				A0A7DAA52C458526003DF1E1 /* ai-claude.js */,
+				A0A7DAA12C458526003DF1E1 /* ai-copilot.js */,
+				A0A7DAA92C458526003DF1E1 /* ai-deepseek.js */,
+				A0A7DAA32C458526003DF1E1 /* ai-gemini.js */,
+				A0A7DAA72C458526003DF1E1 /* ai-mistral.js */,
+				A0A7DAA22C458526003DF1E1 /* ai-perplexity.js */,
+				A0A7DAA62C458526003DF1E1 /* ai-phind.js */,
+				A0A7DAA42C458526003DF1E1 /* ai-toggle.js */,
 				A0151F112A8D0EF000C9A846 /* _locales */,
 				A0151F132A8D0EF000C9A846 /* images */,
 				A0151F152A8D0EF000C9A846 /* manifest.json */,
@@ -378,14 +402,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0A7DAAB2C458526003DF1E1 /* ai-perplexity.js in Resources */,
+				A0A7DAB22C458526003DF1E1 /* ai-deepseek.js in Resources */,
 				A0151F182A8D0EF000C9A846 /* background.js in Resources */,
 				A0151F1E2A8D0EF000C9A846 /* popup.css in Resources */,
+				A0A7DAAC2C458526003DF1E1 /* ai-gemini.js in Resources */,
+				A0A7DAAD2C458526003DF1E1 /* ai-toggle.js in Resources */,
 				A0151F1C2A8D0EF000C9A846 /* popup.html in Resources */,
 				A0151F142A8D0EF000C9A846 /* images in Resources */,
 				A0151F162A8D0EF000C9A846 /* manifest.json in Resources */,
+				A0A7DAAE2C458526003DF1E1 /* ai-claude.js in Resources */,
 				A0448EB52B4AEB5200F88633 /* popup-esm.js in Resources */,
+				A0A7DAB12C458526003DF1E1 /* ai-chatgpt.js in Resources */,
 				A0151F122A8D0EF000C9A846 /* _locales in Resources */,
-				A0448EB62B4AEB5200F88633 /* ai-chat-modules in Resources */,
+				A0A7DAB02C458526003DF1E1 /* ai-mistral.js in Resources */,
+				A0A7DAAA2C458526003DF1E1 /* ai-copilot.js in Resources */,
+				A0A7DAAF2C458526003DF1E1 /* ai-phind.js in Resources */,
 				A0151F1A2A8D0EF000C9A846 /* content.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
