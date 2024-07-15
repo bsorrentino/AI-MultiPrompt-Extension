@@ -1,6 +1,4 @@
-export const queryTab = () => browser.tabs.query({ url: "*://*.perplexity.ai/*" , currentWindow:true})
-
-export const createTab = () => browser.tabs.create({ url: "https://www.perplexity.ai/", pinned: true })
+import { AIToggle } from "./ai-toggle.js";
 
 /**
  * Submits the given prompt text to the Perplexity playground form.
@@ -9,7 +7,7 @@ export const createTab = () => browser.tabs.create({ url: "https://www.perplexit
  * 
  * @param {string} prompt - The prompt text to submit.
  */
-export const submit = (prompt) => {
+const submit = (prompt) => {
 
     const promptElem = document.querySelector("textarea");
     if (!promptElem) {
@@ -50,3 +48,16 @@ export const submit = (prompt) => {
     // }
 
 }
+
+class PerplexityComponent extends AIToggle {
+
+    constructor() {
+        super();
+        this.setAttribute( "queryTabUrl", "*://*.perplexity.ai/*" ),
+        this.setAttribute( "createTabUrl","https://www.perplexity.ai/" );
+        this.submitClosure = submit
+    }
+
+}
+
+customElements.define('ai-perplexity', PerplexityComponent);
