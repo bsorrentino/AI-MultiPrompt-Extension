@@ -164,20 +164,21 @@ export class AIToggle extends HTMLElement {
     }
 
     #onChange() { 
-        const tabs = this.queryTab()
+        this.queryTab()
         .then( tabs => {
             const tabsExists = tabs && tabs.length > 0
 
             if( this.checked && !tabsExists ) {
-                this.createTab()
-            }    
+                return this.createTab()
+            }
         })
         .finally(() => {
-            this.dispatchEvent(new CustomEvent('change', { 
-                bubbles: true,
-                composed: true,
-                detail: { checked: this.checked } 
-            }));
+            this.dispatchEvent(new Event('change'));
+//            this.dispatchEvent(new CustomEvent('change', {
+//                bubbles: true,
+//                composed: true,
+//                detail: { checked: this.checked } 
+//            }));
         })
     }
 
@@ -186,10 +187,10 @@ export class AIToggle extends HTMLElement {
         this.#toggleElem.addEventListener('change', this.#onChange.bind(this) );
         this.addEventListener( 'submit', this.#submitPrompt.bind(this) );
 
-        this.queryTab().then( tabs => {
-            const tabsExists = tabs && tabs.length > 0
-            this.checked = tabsExists
-        })
+//        this.queryTab().then( tabs => {
+//            const tabsExists = tabs && tabs.length > 0
+//            this.checked = tabsExists
+//        })
 
     }
 

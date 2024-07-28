@@ -173,11 +173,12 @@ export class AIToggle extends HTMLElement {
             }    
         })
         .finally(() => {
-            this.dispatchEvent(new CustomEvent('change', { 
-                bubbles: true,
-                composed: true,
-                detail: { checked: this.checked } 
-            }));
+            this.dispatchEvent(new Event('change'));
+//            this.dispatchEvent(new CustomEvent('change', {
+//                bubbles: true,
+//                composed: true,
+//                detail: { checked: this.checked } 
+//            }));
         })
     }
 
@@ -186,10 +187,10 @@ export class AIToggle extends HTMLElement {
         this.#toggleElem.addEventListener('change', this.#onChange.bind(this) );
         this.addEventListener( 'submit', this.#submitPrompt.bind(this) );
 
-        this.queryTab().then( tabs => {
-            const tabsExists = tabs && tabs.length > 0
-            this.checked = tabsExists
-        })
+        // this.queryTab().then( tabs => {
+        //     const tabsExists = tabs && tabs.length > 0
+        //     this.checked = tabsExists
+        // })
 
     }
 
