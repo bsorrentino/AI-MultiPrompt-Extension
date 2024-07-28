@@ -1,6 +1,4 @@
-export const queryTab = () => browser.tabs.query({ url: "*://chatgpt.com/*", currentWindow:true })
-
-export const createTab = () => browser.tabs.create({ url: "https://chatgpt.com/", pinned: true })
+import { AIToggle } from "./ai-toggle.js";
 
 /**
  * Submits the given prompt text to the OpenAI playground form.
@@ -38,3 +36,16 @@ export const submit = (prompt) => {
     }
 
 }
+
+class CharGPTComponent extends AIToggle {
+
+    constructor() {
+        super();
+        this.setAttribute("queryTabUrl", "*://chatgpt.com/*" );
+        this.setAttribute("createTabUrl", "https://chatgpt.com/" );
+        this.submitClosure = submit
+    }
+
+}
+
+customElements.define('ai-chatgpt', CharGPTComponent);

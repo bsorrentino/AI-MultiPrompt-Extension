@@ -1,15 +1,13 @@
-export const queryTab = () => browser.tabs.query({ url: "*://*.perplexity.ai/*" , currentWindow:true})
-
-export const createTab = () => browser.tabs.create({ url: "https://www.perplexity.ai/", pinned: true })
+import { AIToggle } from "./ai-toggle.js";
 
 /**
- * Submits the given prompt text to the Perplexity playground form.
+ * Submits the given prompt text to the Deepseek playground form.
  * 
  * take note that this function must be serializable to pass to executeScript. Don't call subfunction etc.
  * 
  * @param {string} prompt - The prompt text to submit.
  */
-export const submit = (prompt) => {
+const submit = (prompt) => {
 
     const promptElem = document.querySelector("textarea");
     if (!promptElem) {
@@ -18,7 +16,7 @@ export const submit = (prompt) => {
     }
     promptElem.value = prompt;
     promptElem.dispatchEvent(new Event('input', { 'bubbles': true }));
-
+    
     // Create a new KeyboardEvent
     const enterEvent = new KeyboardEvent('keydown', {
         bubbles: true, // Make sure the event bubbles up through the DOM
@@ -30,23 +28,17 @@ export const submit = (prompt) => {
     
     // Dispatch the event on the textarea element
     promptElem.dispatchEvent(enterEvent);
-    
-    // let parentElem = promptElem.parentElement
-    // let buttons = null
-    // do {
-    //     buttons = parentElem.querySelectorAll("button");
-        
-    //     parentElem = parentElem.parentElement
-        
-    // } while( buttons && buttons.length === 0 );
-    
-    // if (buttons && buttons.length > 0) {
+}
 
-    //     buttons.forEach(b => console.debug("BUTTON => ", b));
+class DeepseekComponent extends AIToggle {
 
-    //     const submitButton = buttons[buttons.length - 1];
-    //     submitButton.click()
-        
-    // }
+    constructor() {
+        super();
+        this.setAttribute( "queryTabUrl", "*://chat.deepseek.com/*" ); 
+        this.setAttribute( "createTabUrl", "https://chat.deepseek.com/" ); 
+        this.submitClosure = submit
+    }
 
 }
+
+customElements.define('ai-deepseek', DeepseekComponent);

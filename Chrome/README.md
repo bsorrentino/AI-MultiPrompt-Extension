@@ -20,6 +20,7 @@ This extension submit a single prompt simultaneously to different AI chat previo
   - [Perplexity]
   - [Copilot]
   - [Deepseek]
+  - [Claude]
 * It remember last submitted prompt 
 * Copy last submitted prompt to the clipboard
 * Allows to choose which AI are involved in prompt analysis.
@@ -38,3 +39,4 @@ Copilot: https://copilot.microsoft.com/
 Deepseek: https://chat.deepseek.com/
 Perplexity: https://www.perplexity.ai/
 Mistral: https://chat.mistral.ai/chat
+Claude: https://claude.ai/chat
