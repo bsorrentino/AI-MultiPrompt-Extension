@@ -1,6 +1,4 @@
-export const queryTab = () => chrome.tabs.query({ url: "*://gemini.google.com/*" , currentWindow:true})
-
-export const createTab = () => chrome.tabs.create({ url: "https://gemini.google.com/", pinned: true })
+import { AIToggle } from "./ai-toggle.js";
 
 /**
  * Submits the given prompt text to the Gemini playground form.
@@ -9,7 +7,7 @@ export const createTab = () => chrome.tabs.create({ url: "https://gemini.google.
  * 
  * @param {string} prompt - The prompt text to submit.
  */
-export const submit = (prompt) => {
+const submit = (prompt) => {
 
     const promptElem = document.querySelector("input-area-v2 rich-textarea > div");
     if (!promptElem) {
@@ -34,3 +32,15 @@ export const submit = (prompt) => {
 }
 
 
+class GeminiComponent extends AIToggle {
+
+    constructor() {
+        super();
+        this.setAttribute( "queryTabUrl", "*://gemini.google.com/*" )
+        this.setAttribute( "createTabUrl", "https://gemini.google.com/" )
+        this.submitClosure = submit
+    }
+
+}
+
+customElements.define('ai-gemini', GeminiComponent);

@@ -1,6 +1,4 @@
-export const queryTab = () => chrome.tabs.query({ url: "*://*.phind.com/*" , currentWindow:true})
-
-export const createTab = () => chrome.tabs.create({ url: "https://www.phind.com/", pinned: true })
+import { AIToggle } from "./ai-toggle.js";
 
 /**
  * Submits the given prompt text to the PHind playground form.
@@ -9,7 +7,7 @@ export const createTab = () => chrome.tabs.create({ url: "https://www.phind.com/
  * 
  * @param {string} prompt - The prompt text to submit.
  */
-export const submit = (prompt) => {
+const submit = (prompt) => {
 
     const promptElem = document.querySelector("form textarea[name='q']");
     if (!promptElem) {
@@ -39,3 +37,16 @@ export const submit = (prompt) => {
     // }
 
 }
+
+class PHindComponent extends AIToggle {
+
+    constructor() {
+        super();
+        this.setAttribute( "queryTabUrl","*://*.phind.com/*" );
+        this.setAttribute( "createTabUrl", "https://www.phind.com/" ); 
+        this.submitClosure = submit
+    }
+
+}
+
+customElements.define('ai-phind', PHindComponent);

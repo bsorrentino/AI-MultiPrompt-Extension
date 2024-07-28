@@ -1,6 +1,4 @@
-export const queryTab = () => chrome.tabs.query({ url: "*://chat.deepseek.com/*" , currentWindow:true})
-
-export const createTab = () => chrome.tabs.create({ url: "https://chat.deepseek.com/", pinned: true })
+import { AIToggle } from "./ai-toggle.js";
 
 /**
  * Submits the given prompt text to the Deepseek playground form.
@@ -9,7 +7,7 @@ export const createTab = () => chrome.tabs.create({ url: "https://chat.deepseek.
  * 
  * @param {string} prompt - The prompt text to submit.
  */
-export const submit = (prompt) => {
+const submit = (prompt) => {
 
     const promptElem = document.querySelector("textarea");
     if (!promptElem) {
@@ -32,3 +30,15 @@ export const submit = (prompt) => {
     promptElem.dispatchEvent(enterEvent);
 }
 
+class MistralComponent extends AIToggle {
+
+    constructor() {
+        super();
+        this.setAttribute( "queryTabUrl", "*://chat.mistral.ai/*" );
+        this.setAttribute( "createTabUrl", "https://chat.mistral.ai/chat" );
+        this.submitClosure = submit
+    }
+
+}
+
+customElements.define('ai-mistral', MistralComponent);

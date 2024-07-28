@@ -84,54 +84,11 @@ TOGGLE SWITCH STYLES
 .toggle-container {
     display: flex;
     align-items: center;
-    gap: 10px;
-    padding-bottom: 10px;
+    align-content: flex-start;
+    row-gap: 5px;
+    column-gap: 7px;
+    padding-bottom: 5px;
+    flex-wrap: wrap;
 }
 
-
-.toggle-switch {
-    position: relative;
-    width: 35px;
-    height: 20px;
-    display: inline-block;
-  }
-  
-  .toggle-switch input[type="checkbox"] {
-    display: none;
-  }
-  
-  .slider {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: grey;
-    border-radius: 30px;
-    transition: 0.4s;
-  }
-  
-  .slider:before {
-    position: absolute;
-    content: "";
-    height: 15px;
-    width: 15px;
-    left: 2px;
-    bottom: 2px;
-    background-color: white;
-    border-radius: 50%;
-    transition: 0.4s;
-  }
-  
-  input:checked + .slider {
-    background-color: #2196F3;
-  }
-  
-  input:disabled + .slider {
-    background-color: #ccc;
-  }
-  
-  input:checked + .slider:before {
-    transform: translateX(15px);
-  }
   

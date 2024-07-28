@@ -1,6 +1,4 @@
-export const queryTab = () => chrome.tabs.query({ url: "*://copilot.microsoft.com/*" , currentWindow:true})
-
-export const createTab = () => chrome.tabs.create({ url: "https://copilot.microsoft.com/", pinned: true })
+import { AIToggle } from "./ai-toggle.js";
 
 /**
  * Submits the given prompt text to the Copilot playground form.
@@ -9,7 +7,7 @@ export const createTab = () => chrome.tabs.create({ url: "https://copilot.micros
  * 
  * @param {string} prompt - The prompt text to submit.
  */
-export const submit = (prompt) => {
+const submit = (prompt) => {
 
     const rootElem = document.querySelector('cib-serp');
     if( !rootElem) {
@@ -61,3 +59,16 @@ export const submit = (prompt) => {
     }
     
 }
+
+class CopilotComponent extends AIToggle {
+
+    constructor() {
+        super();
+        this.setAttribute("queryTabUrl", "*://copilot.microsoft.com/*" ); 
+        this.setAttribute("createTabUrl", "https://copilot.microsoft.com/" ); 
+        this.submitClosure = submit
+    }
+
+}
+
+customElements.define('ai-copilot', CopilotComponent);
