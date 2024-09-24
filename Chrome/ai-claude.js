@@ -15,21 +15,26 @@ const submit = (prompt) => {
         return;
     }
 
-    promptElem.innerHTML = `<p>${prompt}</p`;
+    const oldP = promptElem.querySelector("p");
+    const text = document.createTextNode(prompt);
+    const newP = document.createElement('p');
+    newP.appendChild(text);
+    oldP.replaceWith( newP );
 
-    const setFocus = ( timeout = 500 ) => {
+
+    const setFocus = ( onElem, timeout = 500 ) => {
         return new Promise( (resolve, reject) => {
             setTimeout( () => {
-                promptElem.focus();
-                if( document.activeElement === promptElem  ) 
+                onElem.focus();
+                if( document.activeElement === onElem  ) 
                     resolve()
                 else
                     reject( )
             }, timeout )
         })
     }
-
-    const pressEnter = () => {
+    
+    const pressEnter = ( onElem ) => {
         // Create a new KeyboardEvent
         const enterEvent = new KeyboardEvent('keydown', {
             bubbles: true, // Make sure the event bubbles up through the DOM
@@ -40,23 +45,23 @@ const submit = (prompt) => {
         });
         
         // Dispatch the event on the textarea element
-        promptElem.parentElement.dispatchEvent(enterEvent);
-
+        onElem.dispatchEvent(enterEvent);
+    
     }
-
-    const retrySetFocusUntilSuccess = ( retry ) => {
+    
+    const retrySetFocusUntilSuccess = ( onElem, retry ) => {
         console.debug( 'focus attempt remaining ', retry );
         if( retry === 0 ) {
             return Promise.reject("prompt refuse the focus") 
         }
-
-        return setFocus()
+    
+        return setFocus(onElem)
             .then( () => Promise.resolve() )
-            .catch( () => retrySetFocusUntilSuccess( retry - 1 ) );
+            .catch( () => retrySetFocusUntilSuccess( onElem, retry - 1 ) );
     }
 
-    retrySetFocusUntilSuccess(3)
-    .then( () => pressEnter() )
+    retrySetFocusUntilSuccess(promptElem, 3)
+    .then( () => pressEnter( promptElem.parentElement ) )
     .catch( (e) =>  console.warn(e.message) );
 
     

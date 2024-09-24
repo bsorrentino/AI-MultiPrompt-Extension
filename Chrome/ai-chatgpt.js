@@ -1,5 +1,7 @@
 import { AIToggle } from "./ai-toggle.js";
 
+
+
 /**
  * Submits the given prompt text to the OpenAI playground form.
  * 
@@ -16,16 +18,64 @@ export const submit = (prompt) => {
         return;
     }
 
-    promptElem.value = prompt;
+    const oldP = promptElem.querySelector("p");
+    const text = document.createTextNode(prompt);
+    const newP = document.createElement('p');
+    newP.appendChild(text);
+    oldP.replaceWith( newP );
 
-    promptElem.dispatchEvent(new Event('input', { 'bubbles': true }));
+
+    const setFocus = ( onElem, timeout = 500 ) => {
+        return new Promise( (resolve, reject) => {
+            setTimeout( () => {
+                onElem.focus();
+                if( document.activeElement === onElem  ) 
+                    resolve()
+                else
+                    reject( )
+            }, timeout )
+        })
+    }
+    
+    const pressEnter = ( onElem ) => {
+        // Create a new KeyboardEvent
+        const enterEvent = new KeyboardEvent('keydown', {
+            bubbles: true, // Make sure the event bubbles up through the DOM
+            cancelable: true, // Allow it to be canceled
+            key: 'Enter', // Specify the key to be 'Enter'
+            code: 'Enter', // Specify the code to be 'Enter' for newer browsers
+            which: 13 // The keyCode for Enter key (legacy property)
+        });
+        
+        // Dispatch the event on the textarea element
+        onElem.dispatchEvent(enterEvent);
+    
+    }
+    
+    const retrySetFocusUntilSuccess = ( onElem, retry ) => {
+        console.debug( 'focus attempt remaining ', retry );
+        if( retry === 0 ) {
+            return Promise.reject("prompt refuse the focus") 
+        }
+    
+        return setFocus(onElem)
+            .then( () => Promise.resolve() )
+            .catch( () => retrySetFocusUntilSuccess( onElem, retry - 1 ) );
+    }
+    
+    retrySetFocusUntilSuccess( promptElem, 3)
+        .then( () =>  pressEnter( promptElem ) )
+        .catch( (e) =>  console.warn(e.message) );
+    
+    /*
+
+    const dr = promptElem.dispatchEvent(new Event('input', { 'bubbles': true }));
+    console.debug("INPUT => ", dr);
 
     const parentForm = promptElem.closest("form");
-
     console.debug("FORM => ", parentForm);
 
     const buttons = parentForm.querySelectorAll("button");
-
     if (buttons && buttons.length > 0) {
 
         buttons.forEach(b => console.debug("BUTTON => ", b));
@@ -34,7 +84,7 @@ export const submit = (prompt) => {
         submitButton.click();
 
     }
-
+    */
 }
 
 class CharGPTComponent extends AIToggle {
