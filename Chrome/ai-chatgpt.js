@@ -26,13 +26,15 @@ export const submit = (prompt) => {
 
 
     const setFocus = ( onElem, timeout = 500 ) => {
+        onElem.dispatchEvent(new Event('input', { 'bubbles': true }));
         return new Promise( (resolve, reject) => {
             setTimeout( () => {
                 onElem.focus();
                 if( document.activeElement === onElem  ) 
-                    resolve()
+                    resolve(true)
                 else
-                    reject( )
+                    //reject( )
+                    resolve(false)
             }, timeout )
         })
     }
