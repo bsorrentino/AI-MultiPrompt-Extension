@@ -9,54 +9,58 @@ import { AIToggle } from "./ai-toggle.js";
  */
 const submit = (prompt) => {
 
-    const rootElem = document.querySelector('cib-serp');
-    if( !rootElem) {
-        console.warn("COPILOT: 'cib-serp' not found!")
-        return;
-    }
-    const actionBar = rootElem.shadowRoot.querySelector('cib-action-bar');
-    if(!actionBar) {
-        console.warn("COPILOT: 'cib-action-bar' not found!")
-        return;
-    }
-    const inputElem  = actionBar.shadowRoot.querySelector('cib-text-input');
-    if(!inputElem) {
-        console.warn("COPILOT: 'cib-text-input' not found!")
-        return;
-    }
-
-    const promptElem = inputElem.shadowRoot.querySelector('#searchboxform #searchbox');
-    
+    const promptElem = document.querySelector('textarea#userInput');
     if (!promptElem) {
-        console.warn("COPILOT: '#searchboxform #searchbox' not found!")
+        console.warn("COPILOT: 'textarea#userInput' not found!");
         return;
     }
-    
-    // console.debug( "promptElem:", promptElem );
 
     promptElem.value = prompt;
-    promptElem.dispatchEvent(new Event('input', { 'bubbles': true }));
     
-
-    const buttons = actionBar.shadowRoot.querySelectorAll(".bottom-controls button");
     
-    if (buttons && buttons.length > 0) {
-
-        buttons.forEach(b => console.debug("BUTTON => ", b));
-
-        const submitButton = buttons[buttons.length - 1];
-
-        const clickEvent = new MouseEvent('click', {
-            view: window,
-            bubbles: true,
-            cancelable: true
-          });
-        submitButton.dispatchEvent(clickEvent);
-        
-        // submitButton.focus();
-        // submitButton.click();
-        
+    const setFocus = ( onElem, timeout = 500 ) => {
+        onElem.dispatchEvent(new Event('input', { 'bubbles': true }));
+        return new Promise( (resolve, reject) => {
+            setTimeout( () => {
+                onElem.focus();
+                if( document.activeElement === onElem  )
+                    resolve(true)
+                else
+                    //reject( )
+                    resolve(false)
+            }, timeout )
+        })
     }
+    
+    const pressEnter = ( onElem ) => {
+        // Create a new KeyboardEvent
+        const enterEvent = new KeyboardEvent('keydown', {
+            bubbles: true, // Make sure the event bubbles up through the DOM
+            cancelable: true, // Allow it to be canceled
+            key: 'Enter', // Specify the key to be 'Enter'
+            code: 'Enter', // Specify the code to be 'Enter' for newer browsers
+            which: 13 // The keyCode for Enter key (legacy property)
+        });
+        
+        // Dispatch the event on the textarea element
+        onElem.dispatchEvent(enterEvent);
+    
+    }
+    
+    const retrySetFocusUntilSuccess = ( onElem, retry ) => {
+        console.debug( 'focus attempt remaining ', retry );
+        if( retry === 0 ) {
+            return Promise.reject("prompt refuse the focus")
+        }
+    
+        return setFocus(onElem)
+            .then( () => Promise.resolve() )
+            .catch( () => retrySetFocusUntilSuccess( onElem, retry - 1 ) );
+    }
+    
+    retrySetFocusUntilSuccess( promptElem, 3)
+        .then( () =>  pressEnter( promptElem ) )
+        .catch( (e) =>  console.warn(e.message) );
     
 }
 
